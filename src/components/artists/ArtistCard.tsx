@@ -20,7 +20,7 @@ export const ArtistCard = ({ artist }: ArtistCardProps) => {
                     <p className="text-sm text-gray-600 mb-3 line-clamp-2">{artist.bio}</p>
                     <div className="flex flex-wrap gap-2">
                         {artist.genre.map((g) => (
-                            <span key={g} className="text-xs bg-gray-100 px-2 py-1 rounded">
+                            <span key={g} className="text-xs bg-primary text-white px-2 py-1 rounded">
                                 {g}
                             </span>
                         ))}

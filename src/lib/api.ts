@@ -1,10 +1,16 @@
 import { Artist, Song, News, Chart } from '@/types';
-import { dummyArtists, dummySongs, dummyNews, dummyCharts } from './dummy-data';
+import { dummyArtists, dummySongs, dummyNews, dummyCharts, dummyShorts } from './dummy-data';
+import { ShortContent } from '@/types/shorts';
 
 export const getLatestNews = async (): Promise<News[]> => {
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
     return dummyNews;
+};
+
+export const getLatestShorts = async (count: number): Promise<ShortContent[]> => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    return dummyShorts.slice(0, count);
 };
 
 export const getChartsByType = async (type: string): Promise<Chart[]> => {

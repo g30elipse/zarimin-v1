@@ -20,7 +20,7 @@ export default async function NewsPage({ params }: NewsPageProps) {
                 {/* Hero Section */}
                 <div className="relative h-64 md:h-96 mb-8">
                     <img src={news.coverImage} alt={news.title} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
 
                 {/* Article Content */}
@@ -29,7 +29,7 @@ export default async function NewsPage({ params }: NewsPageProps) {
                     <div className="md:col-span-2">
                         <div className="boxy-card p-6">
                             <h1 className="text-3xl font-bold mb-4">{news.title}</h1>
-                            <div className="flex items-center gap-4 text-gray-600 mb-8 pb-6 border-b-2">
+                            <div className="flex items-center gap-4 text-gray-600 mb-8 pb-6 border-b">
                                 <span>{news.author}</span>
                                 <span>•</span>
                                 <time dateTime={news.date}>{new Date(news.date).toLocaleDateString()}</time>

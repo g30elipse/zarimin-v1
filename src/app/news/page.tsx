@@ -5,6 +5,7 @@ import { NewsFilters } from '@/components/news/NewsFilter';
 import { Pagination } from '@/components/common/Pagination';
 import { filterNews, paginateNews, parseNewsSearchParams } from '@/lib/utils/news';
 import { NewsSearchParams } from '@/types/news';
+import SectionWrapper from '@/components/layout/SectionWrapper';
 
 export const metadata: Metadata = {
     title: 'News - ZARIMIN',
@@ -27,7 +28,7 @@ export default async function NewsPage({ searchParams }: { searchParams: NewsSea
 
     return (
         <main className="min-h-screen p-4 md:p-8">
-            <div className="max-w-7xl mx-auto">
+            <SectionWrapper>
                 {/* Header */}
                 <div className="mb-8">
                     <h1 className="text-4xl font-bold mb-4">Latest News</h1>
@@ -100,7 +101,7 @@ export default async function NewsPage({ searchParams }: { searchParams: NewsSea
                         )}
                     </div>
                 </div>
-            </div>
+            </SectionWrapper>
         </main>
     );
 }

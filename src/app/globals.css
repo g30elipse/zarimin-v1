@@ -53,18 +53,18 @@
 /* Custom utilities for boxy design */
 @layer components {
     .boxy-card {
-        @apply bg-card border-2 border-accent shadow-none 
+        @apply bg-card border border-accent shadow-none 
         hover:shadow-md transition-shadow duration-200;
     }
 
     .boxy-button {
-        @apply px-4 py-2 border-2 border-primary bg-primary text-primary-foreground 
+        @apply px-4 py-2 border border-primary bg-primary text-primary-foreground 
         hover:bg-accent hover:border-accent hover:text-accent-foreground 
         transition-colors duration-200;
     }
 
     .boxy-input {
-        @apply px-4 py-2 border-2 border-input bg-background focus:border-primary 
+        @apply px-4 py-2 border border-input bg-background focus:border-primary 
         outline-none transition-colors duration-200;
     }
 

@@ -9,7 +9,7 @@ interface LatestNewsProps {
 export const LatestNews = ({ news }: LatestNewsProps) => {
     return (
         <SectionWrapper>
-            <h2 className="text-2xl font-semibold">Latest News</h2>
+            <h2 className="text-2xl font-semibold mb-6">Latest News</h2>
             <NewsGrid news={news} />
         </SectionWrapper>
     );
