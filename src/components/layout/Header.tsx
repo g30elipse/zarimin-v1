@@ -12,7 +12,7 @@ export const Header = () => {
                     <div className="flex flex-wrap justify-center gap-4">
                         <NavLink href="/news">All News</NavLink>
                         <NavLink href="/charts">Charts</NavLink>
-                        {/* <NavLink href="/artists">Artists</NavLink> */}
+                        <NavLink href="/shorts">Shorts</NavLink>
                         <NavLink href="/about">About</NavLink>
                         <NavLink href="/team">Team</NavLink>
                     </div>
