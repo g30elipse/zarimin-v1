@@ -2,20 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@layer base {
+    :root {
+        --background: 48 67% 96%; /* #FBF8EF */
+        --foreground: 16 94% 57%; /* #F96E2A */
+
+        --card: 48 67% 96%; /* #FBF8EF */
+        --card-foreground: 16 94% 57%; /* #F96E2A */
+
+        --primary: 16 94% 57%; /* #F96E2A */
+        --primary-foreground: 48 67% 96%; /* #FBF8EF */
+
+        --secondary: 196 52% 87%; /* #C9E6F0 */
+        --secondary-foreground: 203 35% 64%; /* #78B3CE */
+
+        --accent: 203 35% 64%; /* #78B3CE */
+        --accent-foreground: 48 67% 96%; /* #FBF8EF */
+
+        --border: 203 35% 64%; /* #78B3CE */
+        --input: 203 35% 64%; /* #78B3CE */
+
+        --ring: 16 94% 57%; /* #F96E2A */
+
+        --radius: 0px; /* This ensures boxy corners */
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-serif;
+    }
+
+    body {
+        @apply font-sans;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom utilities for boxy design */
+@layer components {
+    .boxy-card {
+        @apply bg-card border-2 border-accent shadow-none 
+        hover:shadow-md transition-shadow duration-200;
+    }
+
+    .boxy-button {
+        @apply px-4 py-2 border-2 border-primary bg-primary text-primary-foreground 
+        hover:bg-accent hover:border-accent hover:text-accent-foreground 
+        transition-colors duration-200;
+    }
+
+    .boxy-input {
+        @apply px-4 py-2 border-2 border-input bg-background focus:border-primary 
+        outline-none transition-colors duration-200;
+    }
+
+    .grid-pattern {
+        background-size: 20px 20px;
+        background-image: linear-gradient(to right, theme(colors.accent.DEFAULT) 1px, transparent 1px),
+            linear-gradient(to bottom, theme(colors.accent.DEFAULT) 1px, transparent 1px);
+        background-color: theme(colors.secondary.DEFAULT);
+    }
 }

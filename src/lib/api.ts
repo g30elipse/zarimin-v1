@@ -21,3 +21,13 @@ export const getAllCharts = async (): Promise<Chart[]> => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     return dummyCharts;
 };
+
+export const getArtistById = async (id: string): Promise<Artist | null> => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    return dummyArtists.find((artist) => artist.id === id) || null;
+};
+
+export const getNewsById = async (id: string): Promise<News | null> => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    return dummyNews.find((news) => news.id === id) || null;
+};

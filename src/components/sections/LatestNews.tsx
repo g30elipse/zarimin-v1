@@ -1,5 +1,6 @@
 import { News } from '@/types';
 import { NewsGrid } from '../news/NewsGrid';
+import SectionWrapper from '../layout/SectionWrapper';
 
 interface LatestNewsProps {
     news: News[];
@@ -7,9 +8,9 @@ interface LatestNewsProps {
 
 export const LatestNews = ({ news }: LatestNewsProps) => {
     return (
-        <section className="space-y-6">
+        <SectionWrapper>
             <h2 className="text-2xl font-semibold">Latest News</h2>
             <NewsGrid news={news} />
-        </section>
+        </SectionWrapper>
     );
 };

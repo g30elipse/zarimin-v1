@@ -10,7 +10,6 @@ export default async function Home() {
 
     return (
         <main className="min-h-screen p-4 md:p-8 space-y-12">
-            <h1 className="text-4xl font-bold">Music News & Charts</h1>
             <LatestNews news={news} />
             <TrendingCharts charts={charts} />
             <ArtistSpotlight artists={spotlightArtists} />

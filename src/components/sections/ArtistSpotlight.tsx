@@ -1,5 +1,6 @@
 import { Artist } from '@/types';
 import { ArtistGrid } from '../artists/ArtistGrid';
+import SectionWrapper from '../layout/SectionWrapper';
 
 interface ArtistSpotlightProps {
     artists: Artist[];
@@ -7,9 +8,9 @@ interface ArtistSpotlightProps {
 
 export const ArtistSpotlight = ({ artists }: ArtistSpotlightProps) => {
     return (
-        <section className="space-y-6">
+        <SectionWrapper>
             <h2 className="text-2xl font-semibold">Artist Spotlight</h2>
             <ArtistGrid artists={artists} />
-        </section>
+        </SectionWrapper>
     );
 };
