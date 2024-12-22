@@ -70,9 +70,9 @@ export default function TeamPage() {
                 <div className="mt-16 p-8 border-2 border-primary bg-secondary">
                     <h2 className="text-2xl font-bold mb-4">Join Our Team</h2>
                     <p className="text-gray-600 mb-6">
-                        We're always looking for passionate individuals who share our vision for promoting and
-                        preserving Bodo music culture. If you're interested in joining our team, we'd love to hear from
-                        you.
+                        We&apos;re always looking for passionate individuals who share our vision for promoting and
+                        preserving Bodo music culture. If you&apos;re interested in joining our team, we&apos;d love to
+                        hear from you.
                     </p>
                     <button className="boxy-button">View Open Positions</button>
                 </div>

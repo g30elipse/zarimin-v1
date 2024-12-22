@@ -1,5 +1,5 @@
-import { Artist, Song, News, Chart } from '@/types';
-import { dummyArtists, dummySongs, dummyNews, dummyCharts, dummyShorts } from './dummy-data';
+import { Artist, News, Chart } from '@/types';
+import { dummyArtists, dummyNews, dummyCharts, dummyShorts } from './dummy-data';
 import { ShortContent } from '@/types/shorts';
 
 export const getLatestNews = async (): Promise<News[]> => {

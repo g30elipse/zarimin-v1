@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     description: 'Latest news and updates from the world of Bodo music and entertainment',
 };
 
-export default async function NewsPage({ searchParams }: { searchParams: NewsSearchParams }) {
+export default async function NewsPage({ searchParams: _searchParams }: { searchParams: Promise<NewsSearchParams> }) {
     const allNews = await getLatestNews();
-
+    const searchParams = await _searchParams;
     // Get unique categories and authors for filters
     const categories = Array.from(new Set(allNews.flatMap((news) => news.category)));
     const authors = Array.from(new Set(allNews.map((news) => news.author)));

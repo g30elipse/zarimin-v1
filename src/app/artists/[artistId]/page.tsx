@@ -2,13 +2,16 @@ import { getArtistById } from '@/lib/api';
 import { notFound } from 'next/navigation';
 
 interface ArtistPageProps {
-    params: {
+    params: Promise<{
         artistId: string;
-    };
+    }>;
 }
 
+// function get
+
 export default async function ArtistPage({ params }: ArtistPageProps) {
-    const artist = await getArtistById(params.artistId);
+    const { artistId } = await params;
+    const artist = await getArtistById(artistId);
 
     if (!artist) {
         notFound();

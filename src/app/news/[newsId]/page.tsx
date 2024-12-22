@@ -2,13 +2,14 @@ import { getNewsById } from '@/lib/api';
 import { notFound } from 'next/navigation';
 
 interface NewsPageProps {
-    params: {
+    params: Promise<{
         newsId: string;
-    };
+    }>;
 }
 
 export default async function NewsPage({ params }: NewsPageProps) {
-    const news = await getNewsById(params.newsId);
+    const { newsId } = await params;
+    const news = await getNewsById(newsId);
 
     if (!news) {
         notFound();

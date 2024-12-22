@@ -1,5 +1,4 @@
 import { ShortContent } from '../../types/shorts';
-import { Heart } from 'lucide-react';
 
 interface ShortCardProps {
     content: ShortContent;
