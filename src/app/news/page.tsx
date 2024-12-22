@@ -57,7 +57,7 @@ export default async function NewsPage({ searchParams: _searchParams }: { search
                                 type="text"
                                 placeholder="Search articles..."
                                 defaultValue={filters.search}
-                                className="w-full px-4 py-2 border-2 border-accent bg-background 
+                                className="w-full px-4 py-2 border border-accent bg-background 
                                           focus:border-primary outline-none transition-colors"
                             />
                         </div>
@@ -72,7 +72,7 @@ export default async function NewsPage({ searchParams: _searchParams }: { search
                             ].map((sort) => (
                                 <button
                                     key={sort.value}
-                                    className={`px-3 py-1 text-sm border-2 transition-colors ${
+                                    className={`px-3 py-1 text-sm border transition-colors ${
                                         sort.value === filters.sort
                                             ? 'border-primary bg-primary text-primary-foreground'
                                             : 'border-accent hover:bg-accent/10'

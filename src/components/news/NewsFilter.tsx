@@ -54,7 +54,7 @@ export function NewsFilters({ categories, authors }: NewsFiltersProps) {
     };
 
     return (
-        <div className="space-y-6 p-6 bg-secondary/50 border-2 border-accent">
+        <div className="space-y-6 p-6 bg-secondary/50 border border-accent">
             {/* Categories */}
             <div>
                 <h3 className="text-lg font-semibold mb-3">Categories</h3>
@@ -63,7 +63,7 @@ export function NewsFilters({ categories, authors }: NewsFiltersProps) {
                         <button
                             key={category}
                             onClick={() => handleCategoryChange(category)}
-                            className={`px-3 py-1 border-2 text-sm transition-colors ${
+                            className={`px-3 py-1 border text-sm transition-colors ${
                                 currentCategories.includes(category)
                                     ? 'border-primary bg-primary text-primary-foreground'
                                     : 'border-accent bg-transparent hover:bg-accent/10'
@@ -83,7 +83,7 @@ export function NewsFilters({ categories, authors }: NewsFiltersProps) {
                         <button
                             key={author}
                             onClick={() => handleAuthorChange(author)}
-                            className={`px-3 py-1 border-2 text-sm transition-colors ${
+                            className={`px-3 py-1 border text-sm transition-colors ${
                                 author === currentAuthor
                                     ? 'border-primary bg-primary text-primary-foreground'
                                     : 'border-accent bg-transparent hover:bg-accent/10'
@@ -108,7 +108,7 @@ export function NewsFilters({ categories, authors }: NewsFiltersProps) {
                         <button
                             key={sort.value}
                             onClick={() => handleSortChange(sort.value as NewsSort)}
-                            className={`px-3 py-1 border-2 text-sm transition-colors ${
+                            className={`px-3 py-1 border text-sm transition-colors ${
                                 sort.value === currentSort
                                     ? 'border-primary bg-primary text-primary-foreground'
                                     : 'border-accent bg-transparent hover:bg-accent/10'
