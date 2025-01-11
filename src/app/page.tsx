@@ -15,9 +15,9 @@ export default async function Home(props: PageProps) {
     ]);
 
     return (
-        <main className="min-h-screen p-4 md:p-8 space-y-12">
-            <LatestNews news={news} />
+        <main className="min-h-screen p-4 md:p-8 lg:space-y-44 space-y-24">
             <LatestShorts shorts={latestShorts} />
+            <LatestNews news={news} />
             <TrendingCharts charts={charts} />
             <ArtistSpotlight artists={spotlightArtists} />
         </main>

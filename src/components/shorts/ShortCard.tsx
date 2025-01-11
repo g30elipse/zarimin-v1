@@ -1,12 +1,20 @@
+import { twJoin, twMerge } from 'tailwind-merge';
 import { ShortContent } from '../../types/shorts';
 
 interface ShortCardProps {
     content: ShortContent;
+    className?: string;
+    variant?: 'default' | 'compact';
 }
 
-export function ShortCard({ content }: ShortCardProps) {
+const FONT_SIZE_MAP = {
+    default: 'text-md font-medium line-clamp-5',
+    compact: 'text-sm font-normal line-clamp-3',
+};
+
+export function ShortCard({ content, className, variant = 'default' }: ShortCardProps) {
     return (
-        <div className="relative aspect-[3/4] group cursor-pointer overflow-hidden">
+        <div className={twMerge('relative aspect-[3/4] group cursor-pointer overflow-hidden', className)}>
             {/* Image */}
             <img
                 src={content.image}
@@ -19,9 +27,9 @@ export function ShortCard({ content }: ShortCardProps) {
 
             {/* Content */}
             <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-                <p className="text-md font-medium mb-4 line-clamp-5">{content.text}</p>
+                <p className={twJoin('mb-4', FONT_SIZE_MAP[variant])}>{content.text}</p>
 
-                <div className="flex items-center justify-between text-sm text-white/80">
+                <div className={twJoin('flex items-center justify-between text-white/80', FONT_SIZE_MAP[variant])}>
                     <div className="flex items-center gap-4">
                         <span>{content.author}</span>
                         <span>•</span>
