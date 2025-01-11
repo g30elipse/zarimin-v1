@@ -79,6 +79,37 @@ interface NewsQuery {
     // category?: string;
 }
 
+// export async function getNewsBySlugAndMore(
+//     slug: string,
+//     preview: boolean
+// ): Promise<{
+//     news: News | null;
+//     moreNews: News[];
+// }> {
+//     const entry = await newsApi.getNewsBySlug(slug);
+//     const entries = await newsApi.getRelatedNews(slug);
+
+//     const selectRandom = (arr: any[], n: number) => {
+//         let result = new Array(n);
+//         let len = arr.length;
+//         const taken = new Array(len);
+//         if (n > len) {
+//             n = len;
+//             result = new Array(n);
+//         }
+//         while (n--) {
+//             const x = Math.floor(Math.random() * len);
+//             result[n] = arr[x in taken ? taken[x] : x];
+//             taken[x] = --len in taken ? taken[len] : len;
+//         }
+//         return result;
+//     };
+//     return {
+//         news: entry,
+//         moreNews: selectRandom(entries, 4),
+//     };
+// }
+
 function buildNewsFilter(query: NewsQuery): string {
     const limit = query.limit ?? 24;
     const skip = (query.page - 1) * limit;
@@ -97,6 +128,20 @@ function buildNewsFilter(query: NewsQuery): string {
 }
 
 export const newsApi = {
+    getRelatedNews: async (slug: string): Promise<News[]> => {
+        const entries = await fetchGraphQL(
+            `query {
+            newsCollection(where: { slug_not_in: "${slug}" }, order: createdAt_DESC, limit: 4) {
+              items {
+                ${NEWS_GRAPHQL_FIELDS}
+              }
+            }
+            }`
+        );
+
+        return (entries?.data?.newsCollection?.items || []).map(parseNews);
+    },
+
     getTotalNews: async (): Promise<number> => {
         const entries = await fetchGraphQL(
             `query {
@@ -118,7 +163,6 @@ export const newsApi = {
           }`
         );
 
-        console.log('entries', entries);
         return (entries?.data?.newsCollection?.items || []).map(parseNews);
     },
 

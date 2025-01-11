@@ -7,7 +7,7 @@ import { PageProps } from '@/types';
 
 export default async function Home(props: PageProps) {
     const { news } = await getData(props);
-    console.log('news', news);
+
     const [charts, spotlightArtists, latestShorts] = await Promise.all([
         getAllCharts(),
         getArtistSpotlight(),

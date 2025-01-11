@@ -3,7 +3,7 @@ import { NavLink } from './NavLink';
 
 export const Header = () => {
     return (
-        <header className="border-b border-accent ">
+        <header className="border-b border-accent sticky top-0 z-10 bg-white">
             <div className="max-w-7xl mx-auto px-4 py-6">
                 <nav className="flex flex-col md:flex-row items-center justify-between gap-4">
                     <Link href="/" className="text-3xl font-bold text-primary hover:text-accent transition-colors">

@@ -11,7 +11,8 @@ interface NewsPageProps {
 export default async function NewsPage({ params }: NewsPageProps) {
     const { newsId } = await params;
     const news = await newsApi.getNewsBySlug(newsId);
-    console.log('news', news);
+    const relatedNews = await newsApi.getRelatedNews(newsId);
+
     if (!news) {
         notFound();
     }
@@ -31,12 +32,12 @@ export default async function NewsPage({ params }: NewsPageProps) {
                     <div className="md:col-span-2">
                         <div className="boxy-card p-6">
                             <h1 className="text-3xl font-bold mb-4">{news.title}</h1>
-                            <div className="flex items-center gap-4 text-gray-600 mb-8 pb-6 border-b">
+                            <div className="flex items-center gap-4 text-gray-600 mb-8 pb-6 border-b text-sm">
                                 <span>{news.author}</span>
                                 <span>•</span>
                                 <time dateTime={news.date}>{new Date(news.date).toLocaleDateString()}</time>
                             </div>
-                            <p className="max-w-4xl prose text-text-light-primary mt-6">
+                            <p className="max-w-4xl prose text-gray-600  mt-6">
                                 {documentToReactComponents(news.content, { preserveWhitespace: true })}
                             </p>
                         </div>
