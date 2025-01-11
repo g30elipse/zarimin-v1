@@ -2,6 +2,7 @@ import { Artist, News, Chart } from '@/types';
 import { dummyArtists, dummyNews, dummyCharts, dummyShorts } from './dummy-data';
 import { Short } from '@/types/shorts';
 import { parseNews } from './parsers';
+import { shortsApi } from './services';
 
 export const getLatestNews = async (): Promise<News[]> => {
     // Simulate API delay
@@ -10,8 +11,12 @@ export const getLatestNews = async (): Promise<News[]> => {
 };
 
 export const getLatestShorts = async (count: number): Promise<Short[]> => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    return dummyShorts.slice(0, count);
+    return shortsApi.getAllShorts({
+        page: 1,
+        limit: count,
+        query: '',
+        sort: 'createdAt_DESC',
+    });
 };
 
 export const getChartsByType = async (type: string): Promise<Chart[]> => {
@@ -57,7 +62,7 @@ const NEWS_GRAPHQL_FIELDS = `
   
 `;
 
-async function fetchGraphQL(query: string, preview = false): Promise<any> {
+export async function fetchGraphQL(query: string, preview = false): Promise<any> {
     return fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`, {
         method: 'POST',
         headers: {
@@ -67,17 +72,19 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
             }`,
         },
         body: JSON.stringify({ query }),
-        next: { tags: ['news'] },
+        next: { tags: ['news', 'short', 'shorts'] },
     }).then((response) => response.json());
 }
 
-interface NewsQuery {
+export interface BaseQuery {
     query: string;
     page: number;
     sort?: string;
     limit?: number;
     // category?: string;
 }
+
+export interface NewsQuery extends BaseQuery {}
 
 // export async function getNewsBySlugAndMore(
 //     slug: string,
@@ -152,6 +159,9 @@ export const newsApi = {
         );
         return entries?.data?.blogCollection?.total;
     },
+
+    // --------------------- News --------------------- //
+
     getAllNews: async (query: NewsQuery): Promise<News[]> => {
         const entries = await fetchGraphQL(
             `query {

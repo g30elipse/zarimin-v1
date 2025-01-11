@@ -4,19 +4,19 @@ import { TrendingCharts } from '@/components/sections/TrendingCharts';
 import { ArtistSpotlight } from '@/components/sections/ArtistSpotlight';
 import { LatestShorts } from '@/components/sections/LatestShorts';
 import { PageProps } from '@/types';
+import { shortsApi } from '@/lib/services';
 
 export default async function Home(props: PageProps) {
-    const { news } = await getData(props);
-
-    const [charts, spotlightArtists, latestShorts] = await Promise.all([
+    const [news, charts, spotlightArtists, shorts] = await Promise.all([
+        getAllNews(),
         getAllCharts(),
         getArtistSpotlight(),
-        getLatestShorts(4),
+        getLatestShorts(5),
     ]);
 
     return (
         <main className="min-h-screen p-4 md:p-8 lg:space-y-44 space-y-24">
-            <LatestShorts shorts={latestShorts} />
+            <LatestShorts shorts={shorts} />
             <LatestNews news={news} />
             <TrendingCharts charts={charts} />
             <ArtistSpotlight artists={spotlightArtists} />
@@ -24,15 +24,11 @@ export default async function Home(props: PageProps) {
     );
 }
 
-export const getData = async (props: PageProps) => {
-    const _news = await newsApi.getAllNews({
+function getAllNews() {
+    return newsApi.getAllNews({
         page: 1,
         limit: 4,
         query: '',
         sort: 'createdAt_DESC',
     });
-
-    return {
-        news: _news,
-    };
-};
+}
