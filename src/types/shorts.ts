@@ -1,5 +1,4 @@
-import { BaseQuery } from '@/lib/api';
-import { Image } from '.';
+import { BaseQuery, Image } from '.';
 
 export interface ShortsQuery extends BaseQuery {}
 

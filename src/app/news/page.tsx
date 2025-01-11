@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { getLatestNews } from '@/lib/api';
+import { getLatestNews } from '@/lib/api/base';
 import { NewsGrid } from '@/components/news/NewsGrid';
 import { NewsFilters } from '@/components/news/NewsFilter';
 import { Pagination } from '@/components/common/Pagination';

@@ -1,5 +1,5 @@
 import { Artist, Song, News, Chart } from '@/types';
-import { ShortContent } from '@/types/shorts';
+import { Short } from '@/types/shorts';
 
 export const dummyArtists: Artist[] = [
     {
@@ -117,7 +117,7 @@ export const dummyCharts: Chart[] = [
     },
 ];
 
-export const dummyShorts: ShortContent[] = [
+export const dummyShorts: Short[] = [
     {
         id: 's1',
         text: 'Just wrapped up an amazing recording session with @BodoBeats. The fusion of traditional instruments with modern production is mind-blowing! 🎵 #BodoMusic #FusionVibes',

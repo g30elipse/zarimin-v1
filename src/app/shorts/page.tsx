@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { ShortGrid } from '@/components/shorts/ShortGrid';
 import SectionWrapper from '@/components/layout/SectionWrapper';
-import { shortsApi } from '@/lib/services';
+import { shortsApi } from '@/lib/api';
 
 export const metadata: Metadata = {
     title: 'Shorts - ZARIMIN',

@@ -1,5 +1,5 @@
 import { Short, ShortsQuery } from '@/types';
-import { fetchGraphQL } from '../api';
+import { fetchGraphQL } from './base';
 import { parseShort } from '../parsers';
 
 const SHORT_GRAPHQL_FIELDS = `

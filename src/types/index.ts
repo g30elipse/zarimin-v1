@@ -6,6 +6,14 @@ export interface PageProps {
     searchParams: Record<string, any>;
 }
 
+export interface BaseQuery {
+    query: string;
+    page: number;
+    sort?: string;
+    limit?: number;
+    // category?: string;
+}
+
 export interface Artist {
     id: string;
     name: string;

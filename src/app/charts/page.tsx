@@ -1,5 +1,5 @@
 import SectionWrapper from '@/components/layout/SectionWrapper';
-import { getAllCharts } from '@/lib/api';
+import { getAllCharts } from '@/lib/api/base';
 
 export default async function ChartsPage() {
     const charts = await getAllCharts();

@@ -1,4 +1,4 @@
-import { getArtistById } from '@/lib/api';
+import { getArtistById } from '@/lib/api/base';
 import { notFound } from 'next/navigation';
 
 interface ArtistPageProps {

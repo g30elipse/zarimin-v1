@@ -1,10 +1,10 @@
-import { getLatestNews, getAllCharts, getArtistSpotlight, getLatestShorts, newsApi } from '@/lib/api';
+import { getLatestNews, getAllCharts, getArtistSpotlight, getLatestShorts } from '@/lib/api/base';
 import { LatestNews } from '@/components/sections/LatestNews';
 import { TrendingCharts } from '@/components/sections/TrendingCharts';
 import { ArtistSpotlight } from '@/components/sections/ArtistSpotlight';
 import { LatestShorts } from '@/components/sections/LatestShorts';
 import { PageProps } from '@/types';
-import { shortsApi } from '@/lib/services';
+import { newsApi, shortsApi } from '@/lib/api';
 
 export default async function Home(props: PageProps) {
     const [news, charts, spotlightArtists, shorts] = await Promise.all([
