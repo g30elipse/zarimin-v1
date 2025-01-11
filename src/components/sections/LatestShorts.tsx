@@ -1,10 +1,10 @@
-import { ShortContent } from '../../types/shorts';
+import { Short } from '../../types/shorts';
 import { ShortCard } from '../shorts/ShortCard';
 import SectionWrapper from '../layout/SectionWrapper';
 import Link from 'next/link';
 
 interface LatestShortsProps {
-    shorts: ShortContent[];
+    shorts: Short[];
 }
 
 export function LatestShorts({ shorts }: LatestShortsProps) {

@@ -1,8 +1,8 @@
 import { twJoin, twMerge } from 'tailwind-merge';
-import { ShortContent } from '../../types/shorts';
+import { Short } from '../../types/shorts';
 
 interface ShortCardProps {
-    content: ShortContent;
+    content: Short;
     className?: string;
     variant?: 'default' | 'compact';
 }

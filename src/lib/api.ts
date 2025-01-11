@@ -1,6 +1,6 @@
 import { Artist, News, Chart } from '@/types';
 import { dummyArtists, dummyNews, dummyCharts, dummyShorts } from './dummy-data';
-import { ShortContent } from '@/types/shorts';
+import { Short } from '@/types/shorts';
 import { parseNews } from './parsers';
 
 export const getLatestNews = async (): Promise<News[]> => {
@@ -9,7 +9,7 @@ export const getLatestNews = async (): Promise<News[]> => {
     return dummyNews;
 };
 
-export const getLatestShorts = async (count: number): Promise<ShortContent[]> => {
+export const getLatestShorts = async (count: number): Promise<Short[]> => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     return dummyShorts.slice(0, count);
 };
