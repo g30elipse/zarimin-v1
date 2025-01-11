@@ -3,7 +3,23 @@ import './globals.css';
 import { ThemeProvider } from '@/components/ui/ThemeProvider';
 import { Header } from '@/components/layout/Header';
 
-import { Playfair_Display, Source_Sans_3 } from 'next/font/google';
+import { Playfair_Display, Source_Sans_3, Unica_One, Crimson_Text } from 'next/font/google';
+
+// Initialize Unica One font
+const unicaOne = Unica_One({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-unica-one',
+    weight: '400',
+});
+
+// Initialize Crimson Text font
+const crimsonText = Crimson_Text({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-crimson-text',
+    weight: ['400', '600'],
+});
 
 // Initialize Playfair Display font
 const playfair = Playfair_Display({
@@ -31,7 +47,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${playfair.variable} ${sourceSans.variable} font-sans`}>
+            <body className={`${playfair.variable} ${crimsonText.variable} font-sans`}>
                 <Header />
                 <ThemeProvider>{children}</ThemeProvider>
             </body>

@@ -12,7 +12,7 @@ module.exports = {
         },
         extend: {
             fontFamily: {
-                sans: ['var(--font-source-sans)'],
+                sans: ['var(--font-crimson-text)'],
                 serif: ['var(--font-playfair)'],
             },
             colors: {
