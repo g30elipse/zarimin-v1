@@ -1,9 +1,9 @@
-import { getLatestNews, getAllCharts, getArtistSpotlight, getLatestShorts, news } from '@/lib/api';
+import { getLatestNews, getAllCharts, getArtistSpotlight, getLatestShorts, newsApi } from '@/lib/api';
 import { LatestNews } from '@/components/sections/LatestNews';
 import { TrendingCharts } from '@/components/sections/TrendingCharts';
 import { ArtistSpotlight } from '@/components/sections/ArtistSpotlight';
 import { LatestShorts } from '@/components/sections/LatestShorts';
-import { News, PageProps } from '@/types';
+import { PageProps } from '@/types';
 
 export default async function Home(props: PageProps) {
     const { news } = await getData(props);
@@ -25,7 +25,7 @@ export default async function Home(props: PageProps) {
 }
 
 export const getData = async (props: PageProps) => {
-    const _news = await news.getAllNews({
+    const _news = await newsApi.getAllNews({
         page: 1,
         limit: 4,
         query: '',

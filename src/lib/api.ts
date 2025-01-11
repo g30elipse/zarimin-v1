@@ -34,11 +34,6 @@ export const getArtistById = async (id: string): Promise<Artist | null> => {
     return dummyArtists.find((artist) => artist.id === id) || null;
 };
 
-export const getNewsById = async (id: string): Promise<News | null> => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    return dummyNews.find((news) => news.id === id) || null;
-};
-
 const NEWS_GRAPHQL_FIELDS = `
   heading
   image {
@@ -101,7 +96,7 @@ function buildNewsFilter(query: NewsQuery): string {
     return `where: { ${filterString} }, skip: ${skip}, limit: ${limit}, order: ${query.sort ?? 'createdAt_DESC'}`;
 }
 
-export const news = {
+export const newsApi = {
     getTotalNews: async (): Promise<number> => {
         const entries = await fetchGraphQL(
             `query {
@@ -130,13 +125,14 @@ export const news = {
     getNewsBySlug: async (slug: string): Promise<News | null> => {
         const entry = await fetchGraphQL(
             `query {
-            blogCollection(where: { slug: "${slug}" }, limit: 1) {
+            newsCollection(where: { slug: "${slug}" }, limit: 1) {
               items {
                 ${NEWS_GRAPHQL_FIELDS}
               }
             }
           }`
         );
-        return entry?.data?.blogCollection?.items?.[0] ? parseNews(entry.data.blogCollection.items[0]) : null;
+
+        return entry?.data?.newsCollection?.items?.[0] ? parseNews(entry.data.newsCollection.items[0]) : null;
     },
 };

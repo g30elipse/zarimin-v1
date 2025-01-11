@@ -7,7 +7,7 @@ export function parseNews(news: NewsResponse): News {
         id: news.slug,
         title: news.heading,
         excerpt: news.heading,
-        content: news.content,
+        content: news.content.json,
         coverImage: news.image.url,
         date: news.createdAt,
     };

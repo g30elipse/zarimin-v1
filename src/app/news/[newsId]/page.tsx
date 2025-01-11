@@ -1,4 +1,5 @@
-import { getNewsById } from '@/lib/api';
+import { newsApi } from '@/lib/api';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { notFound } from 'next/navigation';
 
 interface NewsPageProps {
@@ -9,8 +10,8 @@ interface NewsPageProps {
 
 export default async function NewsPage({ params }: NewsPageProps) {
     const { newsId } = await params;
-    const news = await getNewsById(newsId);
-
+    const news = await newsApi.getNewsBySlug(newsId);
+    console.log('news', news);
     if (!news) {
         notFound();
     }
@@ -35,7 +36,9 @@ export default async function NewsPage({ params }: NewsPageProps) {
                                 <span>•</span>
                                 <time dateTime={news.date}>{new Date(news.date).toLocaleDateString()}</time>
                             </div>
-                            <div className="prose max-w-none">{news.content}</div>
+                            <p className="max-w-4xl prose text-text-light-primary mt-6">
+                                {documentToReactComponents(news.content, { preserveWhitespace: true })}
+                            </p>
                         </div>
                     </div>
 
