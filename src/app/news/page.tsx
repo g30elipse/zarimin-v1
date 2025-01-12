@@ -20,7 +20,6 @@ export default async function NewsPage(props: ServerPageProps<NewsSearchParams>)
     const searchParams = await _searchParams;
     const _filteredNews = await searchNews(searchParams);
 
-    console.log('filteredNews', _filteredNews);
     // Get unique categories and authors for filters
     const categories = Array.from(new Set(_filteredNews.flatMap((news) => news.category)));
     const authors = Array.from(new Set(_filteredNews.map((news) => news.author)));
