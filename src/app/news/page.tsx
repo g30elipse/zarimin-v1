@@ -67,7 +67,7 @@ export default async function NewsPage({ searchParams: _searchParams }: { search
                         <NewsSearch />
 
                         {/* Sort Options */}
-                        <div className="flex justify-end gap-2">
+                        {/* <div className="flex justify-end gap-2">
                             {[
                                 { value: NewsSort.CREATED_DESC, label: 'Newest' },
                                 { value: NewsSort.CREATED_ASC, label: 'Oldest' },
@@ -85,7 +85,7 @@ export default async function NewsPage({ searchParams: _searchParams }: { search
                                     {sort.label}
                                 </button>
                             ))}
-                        </div>
+                        </div> */}
 
                         {/* News Grid */}
                         {paginatedNews.length > 0 ? (
