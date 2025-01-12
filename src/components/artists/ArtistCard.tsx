@@ -17,7 +17,6 @@ export const ArtistCard = ({ artist }: ArtistCardProps) => {
                     <h3 className="text-lg font-semibold">{artist.name}</h3>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">{artist.bio}</p>
                     <div className="flex flex-wrap gap-2">
                         {artist.genre.map((g) => (
                             <span key={g} className="text-xs bg-primary text-white px-2 py-1 rounded">

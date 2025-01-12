@@ -1,30 +1,36 @@
+import { Spotlight } from '@/types';
 import { FC } from 'react';
 
-export interface ArtistSpotlightProps {}
+export interface ArtistSpotlightProps {
+    spotlights: Spotlight[];
+}
 
 const ArtistSpotlight: FC<ArtistSpotlightProps> = (props) => {
+    const { spotlights } = props;
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {[1, 2, 3, 4].map((short) => (
-                <div className="relative aspect-[3/4] group cursor-pointer overflow-hidden">
-                    {/* Image */}
-                    <img
-                        src="https://via.placeholder.com/300"
-                        alt=""
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-
-                    {/* Content */}
-                    <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-                        <p className="mb-4 text-md font-medium line-clamp-5">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc auctor, felis nec fauc
-                        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
+            {spotlights.map((spotlight) => {
+                const artist = spotlight.artist;
+                return (
+                    <div key={spotlight.id} className="bg-gray-100 p-4 rounded-lg grid grid-cols-5 gap-10">
+                        <img
+                            src={spotlight.image}
+                            alt={spotlight.title}
+                            className="aspect-square object-cover rounded-lg col-span-2"
+                        />
+                        <div className="mt-4 col-span-3 space-y-2">
+                            <div>
+                                <h5 className="text-sm font-bold">{artist.name}</h5>
+                                <div className="text-sm text-gray-500">{artist.genre.join(', ')}</div>
+                                <div className="text-sm text-gray-500">
+                                    {new Date(spotlight.date).toLocaleDateString()}
+                                </div>
+                            </div>
+                            <h4 className="font-semibold mt-4">{spotlight.title}</h4>
+                        </div>
                     </div>
-                </div>
-            ))}
+                );
+            })}
         </div>
     );
 };

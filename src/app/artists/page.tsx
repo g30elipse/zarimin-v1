@@ -1,3 +1,4 @@
+import { ArtistGrid } from '@/components/artists/ArtistGrid';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import ArtistSpotlight from '@/components/spotlight/ArtistSpotlight';
 import { artistsApi, spotlightApi } from '@/lib/api';
@@ -12,14 +13,10 @@ export default async function Page(props: ServerPageProps<ArtistsSearchParams>) 
     return (
         <main className="min-h-screen p-4 md:p-8">
             <SectionWrapper>
-                {/* Header */}
-                <ArtistSpotlight />
-                <div className="mb-8">
-                    <h1 className="text-4xl font-bold mb-4">Artists</h1>
-                    <div className="flex items-center gap-2 text-accent"></div>
+                <div className="flex flex-col gap-40 md:gap-80">
+                    <ArtistSpotlight spotlights={spotlights} />
+                    <ArtistGrid artists={artists} />
                 </div>
-
-                {/* Main Content */}
             </SectionWrapper>
         </main>
     );
