@@ -32,17 +32,6 @@ export interface Song {
     streams: number;
 }
 
-export interface News {
-    id: string;
-    title: string;
-    excerpt: string;
-    content: any;
-    coverImage: string;
-    date: string;
-    author: string;
-    category: string[];
-}
-
 export interface Tag {
     id: string;
     name: string;
@@ -52,21 +41,6 @@ export interface Image {
     url: string;
     width: number;
     height: number;
-}
-
-export interface NewsResponse {
-    author: string;
-    content: {
-        json: any;
-    };
-    contentfulMetadata: {
-        tags: Tag[];
-    };
-    createdAt: string;
-    heading: string;
-    slug: string;
-    searchText: string | null;
-    image: Image;
 }
 
 export interface Chart {

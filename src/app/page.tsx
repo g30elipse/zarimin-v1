@@ -3,7 +3,7 @@ import { LatestNews } from '@/components/sections/LatestNews';
 import { TrendingCharts } from '@/components/sections/TrendingCharts';
 import { ArtistSpotlight } from '@/components/sections/ArtistSpotlight';
 import { LatestShorts } from '@/components/sections/LatestShorts';
-import { PageProps } from '@/types';
+import { NewsSort, PageProps } from '@/types';
 import { newsApi, shortsApi } from '@/lib/api';
 
 export default async function Home(props: PageProps) {
@@ -27,8 +27,8 @@ export default async function Home(props: PageProps) {
 function getAllNews() {
     return newsApi.getAllNews({
         page: 1,
-        limit: 4,
-        query: '',
-        sort: 'createdAt_DESC',
+        perPage: 4,
+        search: '',
+        sort: NewsSort.CREATED_DESC,
     });
 }

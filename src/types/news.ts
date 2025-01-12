@@ -1,6 +1,11 @@
-import { BaseQuery } from '.';
+import { BaseQuery, Image, Tag } from '.';
 
-export type NewsSort = 'date-desc' | 'date-asc' | 'title-asc' | 'title-desc';
+export enum NewsSort {
+    CREATED_DESC = 'createdAt_DESC',
+    CREATED_ASC = 'createdAt_ASC',
+    TITLE_DESC = 'heading_DESC',
+    TITLE_ASC = 'heading_ASC',
+}
 
 export interface NewsFilters {
     category?: string[];
@@ -12,6 +17,21 @@ export interface NewsFilters {
 }
 
 export interface NewsQuery extends BaseQuery {}
+
+export interface NewsResponse {
+    author: string;
+    content: {
+        json: any;
+    };
+    contentfulMetadata: {
+        tags: Tag[];
+    };
+    createdAt: string;
+    heading: string;
+    slug: string;
+    searchText: string | null;
+    image: Image;
+}
 
 export interface News {
     id: string;

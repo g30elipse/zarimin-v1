@@ -6,6 +6,8 @@ import { Pagination } from '@/components/common/Pagination';
 import { filterNews, paginateNews, parseNewsSearchParams } from '@/lib/utils/news';
 import { NewsSearchParams } from '@/types/news';
 import SectionWrapper from '@/components/layout/SectionWrapper';
+import NewsSearch from './_search';
+import { newsApi } from '@/lib/api';
 
 export const metadata: Metadata = {
     title: 'News - ZARIMIN',
@@ -13,18 +15,30 @@ export const metadata: Metadata = {
 };
 
 export default async function NewsPage({ searchParams: _searchParams }: { searchParams: Promise<NewsSearchParams> }) {
-    const allNews = await getLatestNews();
+    // const allNews = await getLatestNews();
     const searchParams = await _searchParams;
+    const _filteredNews = await searchNews(searchParams);
+
+    console.log('filteredNews', _filteredNews);
     // Get unique categories and authors for filters
-    const categories = Array.from(new Set(allNews.flatMap((news) => news.category)));
-    const authors = Array.from(new Set(allNews.map((news) => news.author)));
+    const categories = Array.from(new Set(_filteredNews.flatMap((news) => news.category)));
+    const authors = Array.from(new Set(_filteredNews.map((news) => news.author)));
 
     // Parse and apply filters
     const filters = parseNewsSearchParams(searchParams);
-    const filteredNews = filterNews(allNews, filters);
+    const filteredNews = _filteredNews;
 
     // Apply pagination
     const { items: paginatedNews, totalPages } = paginateNews(filteredNews, filters.page, filters.perPage);
+
+    const subtitleArray: string[] = [];
+    if (filters.author) {
+        subtitleArray.push(`By ${filters.author}`);
+    }
+    if (filters.category?.length) {
+        subtitleArray.push(`${filters.category.length} categories selected`);
+    }
+    const subtitle = subtitleArray.join(' • ');
 
     return (
         <main className="min-h-screen p-4 md:p-8">
@@ -33,10 +47,8 @@ export default async function NewsPage({ searchParams: _searchParams }: { search
                 <div className="mb-8">
                     <h1 className="text-4xl font-bold mb-4">Latest News</h1>
                     <div className="flex items-center gap-2 text-accent">
-                        <span>{filteredNews.length} articles found</span>
-                        {(filters.category?.length || filters.author || filters.search) && <span>•</span>}
-                        {filters.category?.length ? <span>{filters.category.length} categories selected</span> : null}
-                        {filters.author && <span>By {filters.author}</span>}
+                        <span>{filteredNews.length} news found</span>
+                        {subtitle.length ? <span>• {subtitle}</span> : null}
                     </div>
                 </div>
 
@@ -52,7 +64,8 @@ export default async function NewsPage({ searchParams: _searchParams }: { search
                     {/* News Grid */}
                     <div className="lg:col-span-3 space-y-8">
                         {/* Search Bar */}
-                        <div className="relative">
+                        <NewsSearch />
+                        {/* <div className="relative">
                             <input
                                 type="text"
                                 placeholder="Search articles..."
@@ -60,7 +73,8 @@ export default async function NewsPage({ searchParams: _searchParams }: { search
                                 className="w-full px-4 py-2 border border-accent bg-background 
                                           focus:border-primary outline-none transition-colors"
                             />
-                        </div>
+                            
+                        </div> */}
 
                         {/* Sort Options */}
                         <div className="flex justify-end gap-2">
@@ -104,4 +118,14 @@ export default async function NewsPage({ searchParams: _searchParams }: { search
             </SectionWrapper>
         </main>
     );
+}
+
+async function searchNews(params: NewsSearchParams) {
+    console.log('Searching news with params:', params);
+    const page = params.page ? parseInt(params.page) : 1;
+    return newsApi.searchNews({
+        page,
+        search: params.search,
+        sort: params.sort,
+    });
 }

@@ -1,4 +1,4 @@
-import { BaseQuery, News, NewsQuery } from '@/types';
+import { News, NewsFilters } from '@/types';
 import { parseNews } from '../parsers';
 import { fetchGraphQL } from './base';
 
@@ -25,16 +25,27 @@ const NEWS_GRAPHQL_FIELDS = `
   
 `;
 
-function buildNewsFilter(query: NewsQuery): string {
-    const limit = query.limit ?? 24;
+function buildNewsFilter(_query: NewsFilters): string {
+    const query = {
+        ..._query,
+        page: _query.page ?? 1,
+        perPage: _query.perPage ?? 5,
+        // limit: _query.perPage ?? 24,
+    };
+
+    const limit = query.perPage ?? 24;
     const skip = (query.page - 1) * limit;
     let filterString = '';
 
-    if (query.query) {
+    if (query.search) {
         // search title
         // search searchText
         // or filter
-        filterString = `OR: [ {heading_contains: "${query.query}"}, {searchText_contains: "${query.query}"} ]`;
+        filterString = `OR: [ 
+            { heading_contains: "${query.search}" }, 
+            { searchText_contains: "${query.search}" },
+            { author_contains: "${query.search}" },
+        ]`;
     }
     // if (query.category) {
     //     filters.push(`category_contains_some: "${query.category}"`);
@@ -69,8 +80,21 @@ export const newsApi = {
     },
 
     // --------------------- News --------------------- //
+    searchNews: async (query: NewsFilters): Promise<News[]> => {
+        const entries = await fetchGraphQL(
+            `query {
+            newsCollection(${buildNewsFilter(query)}) {
+              items {
+                ${NEWS_GRAPHQL_FIELDS}
+              }
+            }
+            }`
+        );
 
-    getAllNews: async (query: NewsQuery): Promise<News[]> => {
+        return (entries?.data?.newsCollection?.items || []).map(parseNews);
+    },
+
+    getAllNews: async (query: NewsFilters): Promise<News[]> => {
         const entries = await fetchGraphQL(
             `query {
             newsCollection(${buildNewsFilter(query)}) {

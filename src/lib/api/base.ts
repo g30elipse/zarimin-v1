@@ -1,13 +1,16 @@
-import { Artist, News, Chart } from '@/types';
+import { Artist, News, Chart, NewsSort } from '@/types';
 import { dummyArtists, dummyNews, dummyCharts, dummyShorts } from '../dummy-data';
 import { Short } from '@/types/shorts';
 import { parseNews } from '../parsers';
-import { shortsApi } from '.';
+import { newsApi, shortsApi } from '.';
 
 export const getLatestNews = async (): Promise<News[]> => {
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    return dummyNews;
+    return newsApi.getAllNews({
+        page: 1,
+        perPage: 4,
+        search: '',
+        sort: NewsSort.CREATED_DESC,
+    });
 };
 
 export const getLatestShorts = async (count: number): Promise<Short[]> => {

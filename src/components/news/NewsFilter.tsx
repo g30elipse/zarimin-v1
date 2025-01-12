@@ -100,10 +100,10 @@ export function NewsFilters({ categories, authors }: NewsFiltersProps) {
                 <h3 className="text-lg font-semibold mb-3">Sort By</h3>
                 <div className="flex flex-wrap gap-2">
                     {[
-                        { value: 'date-desc', label: 'Newest First' },
-                        { value: 'date-asc', label: 'Oldest First' },
-                        { value: 'title-asc', label: 'Title A-Z' },
-                        { value: 'title-desc', label: 'Title Z-A' },
+                        { value: NewsSort.CREATED_DESC, label: 'Newest First' },
+                        { value: NewsSort.CREATED_ASC, label: 'Oldest First' },
+                        { value: NewsSort.TITLE_ASC, label: 'Title A-Z' },
+                        { value: NewsSort.TITLE_DESC, label: 'Title Z-A' },
                     ].map((sort) => (
                         <button
                             key={sort.value}

@@ -1,4 +1,4 @@
-import { NewsFilters, NewsSearchParams } from '@/types/news';
+import { NewsFilters, NewsSearchParams, NewsSort } from '@/types/news';
 import { News } from '@/types';
 
 export function parseNewsSearchParams(searchParams: NewsSearchParams): NewsFilters {
@@ -37,14 +37,10 @@ export function filterNews(news: News[], filters: NewsFilters): News[] {
     if (filters.sort) {
         filtered.sort((a, b) => {
             switch (filters.sort) {
-                case 'date-desc':
+                case NewsSort.CREATED_DESC:
                     return new Date(b.date).getTime() - new Date(a.date).getTime();
-                case 'date-asc':
+                case NewsSort.CREATED_ASC:
                     return new Date(a.date).getTime() - new Date(b.date).getTime();
-                case 'title-asc':
-                    return a.title.localeCompare(b.title);
-                case 'title-desc':
-                    return b.title.localeCompare(a.title);
                 default:
                     return 0;
             }
