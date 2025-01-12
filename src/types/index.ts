@@ -8,6 +8,17 @@ export interface ServerPageProps<SP = Record<string, any>, P = Record<string, an
     searchParams: Promise<SP>;
 }
 
+export interface GraphQlResponse<T> {
+    data: T;
+}
+
+export interface GraphQlCollectionResponse<T> {
+    data: {
+        [key: string]: {
+            items: T[];
+        };
+    };
+}
 export interface ContentfulResponse {
     sys: {
         id: string;

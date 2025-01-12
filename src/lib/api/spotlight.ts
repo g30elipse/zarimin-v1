@@ -1,9 +1,8 @@
-import { Spotlight, SpotlightFilters, SpotlightSort } from '@/types';
+import { GraphQlCollectionResponse, Spotlight, SpotlightFilters, SpotlightResponse, SpotlightSort } from '@/types';
 import { fetchGraphQL } from '.';
 import { parseSpotlight } from '../parsers';
 
 const SPOTLIGHT_GRAPHQL_FIELDS = `
-    {
       heading
       image {
         title
@@ -45,7 +44,7 @@ const SPOTLIGHT_GRAPHQL_FIELDS = `
           name
         }
       }
-    }
+    
 `;
 
 function buildSpotlightFilter(_query: SpotlightFilters): string {
@@ -78,7 +77,7 @@ function buildSpotlightFilter(_query: SpotlightFilters): string {
 
 export const spotlightApi = {
     getLatestSpotlights: async (count: number): Promise<Spotlight[]> => {
-        const entries = await fetchGraphQL(
+        const entries: GraphQlCollectionResponse<SpotlightResponse> = await fetchGraphQL(
             `query {
               artistSpotlightCollection(${buildSpotlightFilter({
                   page: 1,
@@ -91,6 +90,8 @@ export const spotlightApi = {
               }
               }`
         );
+
+        console.log('entries', entries);
 
         return (entries?.data?.artistSpotlightCollection?.items || []).map(parseSpotlight);
     },

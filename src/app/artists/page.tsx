@@ -8,7 +8,7 @@ export default async function Page(props: ServerPageProps<ArtistsSearchParams>) 
     const artists = await searchArtists(searchParams);
     const spotlights = await getLatestSpotlights();
 
-    console.log('Artists:', artists);
+    console.log('Artists:', artists, spotlights);
     return (
         <main className="min-h-screen p-4 md:p-8">
             <SectionWrapper>
