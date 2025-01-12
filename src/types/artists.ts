@@ -20,17 +20,18 @@ export interface ArtistsResponse extends ContentfulResponse {
     about: {
         json: any;
     };
-    dateOfBirth: string;
+    dateOfBirth?: string;
     slug: string;
     searchText: string | null;
-    profileImage: Image;
+    profileImage?: Image;
     socialLinks: any[];
 }
 
 export interface Artist {
     id: string;
     name: string;
-    image: string;
+    slug: string;
+    image?: string;
     bio: string;
     genre: string[];
     popularSongs?: Song[];

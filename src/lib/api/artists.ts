@@ -2,7 +2,7 @@ import { Artist, ArtistsFilters, ArtistsSort } from '@/types';
 import { fetchGraphQL } from '.';
 import { parseArtist } from '../parsers';
 
-const NEWS_GRAPHQL_FIELDS = `
+const ARTIST_GRAPHQL_FIELDS = `
   name
   profileImage {
     url
@@ -48,15 +48,15 @@ export const artistsApi = {
     searchArtists: async (query: ArtistsFilters): Promise<Artist[]> => {
         const entries = await fetchGraphQL(
             `query {
-                newsCollection(${buildArtistsFilter(query)}) {
+                artistCollection(${buildArtistsFilter(query)}) {
                   items {
-                    ${NEWS_GRAPHQL_FIELDS}
+                    ${ARTIST_GRAPHQL_FIELDS}
                   }
                 }
                 }`
         );
 
         console.log('entries', entries);
-        return (entries?.data?.newsCollection?.items || []).map(parseArtist);
+        return (entries?.data?.artistCollection?.items || []).map(parseArtist);
     },
 };

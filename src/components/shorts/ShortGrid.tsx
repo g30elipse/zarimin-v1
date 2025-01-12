@@ -1,8 +1,8 @@
-import { ShortContent } from '../../types/shorts';
+import { Short } from '../../types/shorts';
 import { ShortCard } from './ShortCard';
 
 interface ShortGridProps {
-    shorts: ShortContent[];
+    shorts: Short[];
 }
 
 export function ShortGrid({ shorts }: ShortGridProps) {

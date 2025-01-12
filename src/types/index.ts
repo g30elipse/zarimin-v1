@@ -1,6 +1,7 @@
 export * from './news';
 export * from './shorts';
 export * from './artists';
+export * from './spotlight';
 
 export interface ServerPageProps<SP = Record<string, any>, P = Record<string, any>> {
     params: P;

@@ -1,8 +1,8 @@
 import { BaseQuery, ContentfulResponse, Image, Tag } from '.';
 
 export enum NewsSort {
-    CREATED_DESC = 'createdAt_DESC',
-    CREATED_ASC = 'createdAt_ASC',
+    CREATED_DESC = 'sys_publishedAt_DESC',
+    CREATED_ASC = 'sys_publishedAt_ASC',
     TITLE_DESC = 'heading_DESC',
     TITLE_ASC = 'heading_ASC',
 }
