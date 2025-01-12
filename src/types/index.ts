@@ -1,5 +1,6 @@
 export * from './news';
 export * from './shorts';
+export * from './artists';
 
 export interface PageProps {
     params: Record<string, any>;
@@ -12,15 +13,6 @@ export interface BaseQuery {
     sort?: string;
     limit?: number;
     // category?: string;
-}
-
-export interface Artist {
-    id: string;
-    name: string;
-    image: string;
-    bio: string;
-    genre: string[];
-    popularSongs?: Song[];
 }
 
 export interface Song {
