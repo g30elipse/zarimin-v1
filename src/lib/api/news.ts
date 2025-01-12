@@ -39,33 +39,33 @@ function buildNewsFilter(_query: NewsFilters): string {
 
     const limit = query.perPage ?? 24;
     const skip = (query.page - 1) * limit;
-    let filterString = '';
+    let filterStringArr: string[] = [];
 
     if (query.search) {
         // search title
         // search searchText
         // or filter
-        filterString = `OR: [ 
+        filterStringArr.push(`OR: [ 
             { heading_contains: "${query.search}" }, 
             { searchText_contains: "${query.search}" },
             { author_contains: "${query.search}" },
-        ]`;
+        ]`);
     }
 
     if (query.author) {
-        filterString = `author_contains: "${query.author}"`;
+        filterStringArr.push(`author_contains: "${query.author}"`);
     }
-    // if (query.category) {
-    //     filterString = `
-    //         OR: [
-    //             { contentfulMetadata.tags_contains_some: "${query.category}" },
-    //         ]
-    //     `;
-    // }
-    // if (query.category) {
-    //     filters.push(`category_contains_some: "${query.category}"`);
-    // }
-    return `where: { ${filterString} }, skip: ${skip}, limit: ${limit}, order: ${query.sort ?? 'createdAt_DESC'}`;
+    if (query.category && query.category.length) {
+        filterStringArr.push(
+            `contentfulMetadata: { tags: { id_contains_some: [${query.category.map((c) => `"${c.toLowerCase()}"`)}] } }`
+        );
+    }
+
+    console.log('filterStringArr', filterStringArr);
+
+    return `where: { ${filterStringArr.join(', ')} }, skip: ${skip}, limit: ${limit}, order: ${
+        query.sort ?? 'createdAt_DESC'
+    }`;
 }
 
 export const newsApi = {
