@@ -1,20 +1,21 @@
 import { Metadata } from 'next';
-import { getLatestNews } from '@/lib/api/base';
 import { NewsGrid } from '@/components/news/NewsGrid';
 import { NewsFilters } from '@/components/news/NewsFilter';
 import { Pagination } from '@/components/common/Pagination';
-import { filterNews, paginateNews, parseNewsSearchParams } from '@/lib/utils/news';
-import { NewsSearchParams, NewsSort } from '@/types/news';
+import { paginateNews, parseNewsSearchParams } from '@/lib/utils/news';
+import { NewsSearchParams } from '@/types/news';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import NewsSearch from './_search';
 import { newsApi } from '@/lib/api';
+import { ServerPageProps } from '@/types';
 
 export const metadata: Metadata = {
     title: 'News - ZARIMIN',
     description: 'Latest news and updates from the world of Bodo music and entertainment',
 };
 
-export default async function NewsPage({ searchParams: _searchParams }: { searchParams: Promise<NewsSearchParams> }) {
+export default async function NewsPage(props: ServerPageProps<NewsSearchParams>) {
+    const { searchParams: _searchParams } = props;
     // const allNews = await getLatestNews();
     const searchParams = await _searchParams;
     const _filteredNews = await searchNews(searchParams);

@@ -2,9 +2,9 @@ export * from './news';
 export * from './shorts';
 export * from './artists';
 
-export interface PageProps {
-    params: Record<string, any>;
-    searchParams: Record<string, any>;
+export interface ServerPageProps<SP = Record<string, any>, P = Record<string, any>> {
+    params: P;
+    searchParams: Promise<SP>;
 }
 
 export interface BaseQuery {

@@ -38,3 +38,11 @@ export interface Artist {
     genre: string[];
     popularSongs?: Song[];
 }
+
+export interface ArtistsSearchParams extends Record<string, string | string[] | undefined> {
+    category?: string | string[];
+    search?: string;
+    sort?: ArtistsSort;
+    page?: string;
+    perPage?: string;
+}
