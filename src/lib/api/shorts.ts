@@ -9,6 +9,10 @@ const SHORT_GRAPHQL_FIELDS = `
     width
     height
   }
+  sys {
+    id  
+    publishedAt
+  }
   author
   createdAt
   slug

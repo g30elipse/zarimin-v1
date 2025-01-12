@@ -6,6 +6,6 @@ export function parseShort(content: ShortResponse): Short {
         text: content.caption,
         image: content.image.url,
         author: content.author,
-        date: content.createdAt,
+        date: content.sys?.publishedAt,
     };
 }

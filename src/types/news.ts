@@ -1,4 +1,4 @@
-import { BaseQuery, Image, Tag } from '.';
+import { BaseQuery, ContentfulResponse, Image, Tag } from '.';
 
 export enum NewsSort {
     CREATED_DESC = 'createdAt_DESC',
@@ -18,15 +18,12 @@ export interface NewsFilters {
 
 export interface NewsQuery extends BaseQuery {}
 
-export interface NewsResponse {
+export interface NewsResponse extends ContentfulResponse {
     author: string;
     content: {
         json: any;
     };
-    contentfulMetadata: {
-        tags: Tag[];
-    };
-    createdAt: string;
+    // createdAt: string;
     heading: string;
     slug: string;
     searchText: string | null;

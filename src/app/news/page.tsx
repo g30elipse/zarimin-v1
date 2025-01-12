@@ -113,9 +113,17 @@ export default async function NewsPage(props: ServerPageProps<NewsSearchParams>)
 async function searchNews(params: NewsSearchParams) {
     console.log('Searching news with params:', params);
     const page = params.page ? parseInt(params.page) : 1;
+    const category = params.category
+        ? Array.isArray(params.category)
+            ? params.category
+            : [params.category]
+        : undefined;
+
     return newsApi.searchNews({
         page,
         search: params.search,
         sort: params.sort,
+        category,
+        author: params.author,
     });
 }

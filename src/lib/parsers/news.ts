@@ -9,6 +9,6 @@ export function parseNews(news: NewsResponse): News {
         excerpt: news.heading,
         content: news.content.json,
         coverImage: news.image.url,
-        date: news.createdAt,
+        date: news.sys?.publishedAt,
     };
 }

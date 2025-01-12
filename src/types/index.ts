@@ -7,6 +7,16 @@ export interface ServerPageProps<SP = Record<string, any>, P = Record<string, an
     searchParams: Promise<SP>;
 }
 
+export interface ContentfulResponse {
+    sys: {
+        id: string;
+        publishedAt: string;
+    };
+    contentfulMetadata: {
+        tags: Tag[];
+    };
+}
+
 export interface BaseQuery {
     query: string;
     page: number;

@@ -1,4 +1,4 @@
-import { BaseQuery, Image } from '.';
+import { BaseQuery, ContentfulResponse, Image } from '.';
 
 export interface ShortsQuery extends BaseQuery {}
 
@@ -11,7 +11,7 @@ export interface Short {
     likes?: number;
 }
 
-export interface ShortResponse {
+export interface ShortResponse extends ContentfulResponse {
     caption: string;
     author: string;
     createdAt: string;

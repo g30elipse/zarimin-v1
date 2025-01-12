@@ -16,6 +16,10 @@ const NEWS_GRAPHQL_FIELDS = `
   searchText
   createdAt
   slug
+  sys {
+    id
+    publishedAt
+  }
    contentfulMetadata {
         tags {
             id
@@ -47,6 +51,17 @@ function buildNewsFilter(_query: NewsFilters): string {
             { author_contains: "${query.search}" },
         ]`;
     }
+
+    if (query.author) {
+        filterString = `author_contains: "${query.author}"`;
+    }
+    // if (query.category) {
+    //     filterString = `
+    //         OR: [
+    //             { contentfulMetadata.tags_contains_some: "${query.category}" },
+    //         ]
+    //     `;
+    // }
     // if (query.category) {
     //     filters.push(`category_contains_some: "${query.category}"`);
     // }
@@ -90,6 +105,8 @@ export const newsApi = {
             }
             }`
         );
+
+        console.log('entries', entries);
 
         return (entries?.data?.newsCollection?.items || []).map(parseNews);
     },

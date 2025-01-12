@@ -1,4 +1,4 @@
-import { BaseQuery, Image, Song, Tag } from '.';
+import { BaseQuery, ContentfulResponse, Image, Song, Tag } from '.';
 
 export interface ArtistsQuery extends BaseQuery {}
 
@@ -15,13 +15,10 @@ export interface ArtistsFilters {
     perPage?: number;
 }
 
-export interface ArtistsResponse {
+export interface ArtistsResponse extends ContentfulResponse {
     name: string;
     about: {
         json: any;
-    };
-    contentfulMetadata: {
-        tags: Tag[];
     };
     dateOfBirth: string;
     slug: string;
