@@ -4,7 +4,7 @@ import { NewsGrid } from '@/components/news/NewsGrid';
 import { NewsFilters } from '@/components/news/NewsFilter';
 import { Pagination } from '@/components/common/Pagination';
 import { filterNews, paginateNews, parseNewsSearchParams } from '@/lib/utils/news';
-import { NewsSearchParams } from '@/types/news';
+import { NewsSearchParams, NewsSort } from '@/types/news';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import NewsSearch from './_search';
 import { newsApi } from '@/lib/api';
@@ -56,7 +56,7 @@ export default async function NewsPage({ searchParams: _searchParams }: { search
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                     {/* Filters Sidebar */}
                     <div className="lg:col-span-1">
-                        <div className="sticky top-4">
+                        <div className="sticky md:top-24">
                             <NewsFilters categories={categories} authors={authors} />
                         </div>
                     </div>
@@ -65,24 +65,14 @@ export default async function NewsPage({ searchParams: _searchParams }: { search
                     <div className="lg:col-span-3 space-y-8">
                         {/* Search Bar */}
                         <NewsSearch />
-                        {/* <div className="relative">
-                            <input
-                                type="text"
-                                placeholder="Search articles..."
-                                defaultValue={filters.search}
-                                className="w-full px-4 py-2 border border-accent bg-background 
-                                          focus:border-primary outline-none transition-colors"
-                            />
-                            
-                        </div> */}
 
                         {/* Sort Options */}
                         <div className="flex justify-end gap-2">
                             {[
-                                { value: 'date-desc', label: 'Newest' },
-                                { value: 'date-asc', label: 'Oldest' },
-                                { value: 'title-asc', label: 'A-Z' },
-                                { value: 'title-desc', label: 'Z-A' },
+                                { value: NewsSort.CREATED_DESC, label: 'Newest' },
+                                { value: NewsSort.CREATED_ASC, label: 'Oldest' },
+                                { value: NewsSort.TITLE_ASC, label: 'A-Z' },
+                                { value: NewsSort.TITLE_DESC, label: 'Z-A' },
                             ].map((sort) => (
                                 <button
                                     key={sort.value}
