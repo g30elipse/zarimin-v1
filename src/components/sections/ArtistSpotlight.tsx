@@ -1,16 +1,16 @@
-import { Artist } from '@/types';
-import { ArtistGrid } from '../artists/ArtistGrid';
+import { Artist, Spotlight } from '@/types';
+import ArtistSpotlight from '../spotlight/ArtistSpotlight';
 import SectionWrapper from '../layout/SectionWrapper';
 
 interface ArtistSpotlightProps {
-    artists: Artist[];
+    spotlights: Spotlight[];
 }
 
-export const ArtistSpotlight = ({ artists }: ArtistSpotlightProps) => {
+export const ArtistSpotlights = ({ spotlights }: ArtistSpotlightProps) => {
     return (
         <SectionWrapper>
             <h2 className="text-2xl font-semibold mb-6">Artist Spotlight</h2>
-            <ArtistGrid artists={artists} />
+            <ArtistSpotlight spotlights={spotlights} />
         </SectionWrapper>
     );
 };

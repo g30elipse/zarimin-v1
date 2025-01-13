@@ -91,8 +91,6 @@ export const spotlightApi = {
               }`
         );
 
-        console.log('entries', entries);
-
         return (entries?.data?.artistSpotlightCollection?.items || []).map(parseSpotlight);
     },
 };

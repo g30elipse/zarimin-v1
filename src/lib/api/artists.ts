@@ -59,4 +59,17 @@ export const artistsApi = {
         console.log('entries', entries);
         return (entries?.data?.artistCollection?.items || []).map(parseArtist);
     },
+
+    getArtistById: async (id: string): Promise<Artist | null> => {
+        const entry = await fetchGraphQL(
+            `query {
+                artistCollection(where: { slug: "${id}", }, limit: 1) {
+                  items {
+                    ${ARTIST_GRAPHQL_FIELDS}
+                  }
+                }
+              }`
+        );
+        return parseArtist(entry?.data?.artistCollection?.items?.[0]);
+    },
 };

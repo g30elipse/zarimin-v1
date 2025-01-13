@@ -9,7 +9,6 @@ export default async function Page(props: ServerPageProps<ArtistsSearchParams>) 
     const artists = await searchArtists(searchParams);
     const spotlights = await getLatestSpotlights();
 
-    console.log('Artists:', artists, spotlights);
     return (
         <main className="min-h-screen p-4 md:p-8">
             <SectionWrapper>
@@ -23,7 +22,6 @@ export default async function Page(props: ServerPageProps<ArtistsSearchParams>) 
 }
 
 async function searchArtists(params: ArtistsSearchParams) {
-    console.log('Searching artists with params:', params);
     const page = params.page ? parseInt(params.page) : 1;
     const category = params.category
         ? Array.isArray(params.category)

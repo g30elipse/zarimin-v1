@@ -32,7 +32,7 @@ export interface Artist {
     name: string;
     slug: string;
     image?: string;
-    bio: string;
+    bio: any;
     genre: string[];
     popularSongs?: Song[];
 }

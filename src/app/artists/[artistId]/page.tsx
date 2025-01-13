@@ -1,4 +1,5 @@
 import { getArtistById } from '@/lib/api/base';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { notFound } from 'next/navigation';
 
 interface ArtistPageProps {
@@ -33,7 +34,10 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
                     <div className="md:col-span-2 space-y-6">
                         <div className="boxy-card p-6">
                             <h2 className="text-2xl font-bold mb-4">About</h2>
-                            <p className="text-gray-600">{artist.bio}</p>
+                            {/* <p className="text-gray-600">{artist.bio}</p> */}
+                            <p className="max-w-4xl prose text-gray-600  mt-6">
+                                {documentToReactComponents(artist.bio, { preserveWhitespace: true })}
+                            </p>
                         </div>
 
                         {/* Popular Songs */}

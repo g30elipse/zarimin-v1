@@ -1,8 +1,8 @@
-import { Artist, News, Chart, NewsSort } from '@/types';
+import { Artist, News, Chart, NewsSort, ArtistsSort, Spotlight } from '@/types';
 import { dummyArtists, dummyNews, dummyCharts, dummyShorts } from '../dummy-data';
 import { Short } from '@/types/shorts';
 import { parseNews } from '../parsers';
-import { newsApi, shortsApi } from '.';
+import { artistsApi, newsApi, shortsApi, spotlightApi } from '.';
 
 export const getLatestNews = async (): Promise<News[]> => {
     return newsApi.getAllNews({
@@ -27,9 +27,10 @@ export const getChartsByType = async (type: string): Promise<Chart[]> => {
     return dummyCharts.filter((chart) => chart.type === type);
 };
 
-export const getArtistSpotlight = async (): Promise<Artist[]> => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    return dummyArtists.slice(0, 5);
+export const getArtistSpotlight = async (): Promise<Spotlight[]> => {
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
+    // return dummyArtists.slice(0, 5);
+    return spotlightApi.getLatestSpotlights(5);
 };
 
 export const getAllCharts = async (): Promise<Chart[]> => {
@@ -38,8 +39,7 @@ export const getAllCharts = async (): Promise<Chart[]> => {
 };
 
 export const getArtistById = async (id: string): Promise<Artist | null> => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    return dummyArtists.find((artist) => artist.id === id) || null;
+    return artistsApi.getArtistById(id);
 };
 
 export async function fetchGraphQL(query: string, preview = false): Promise<any> {
