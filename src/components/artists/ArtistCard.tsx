@@ -9,9 +9,9 @@ interface ArtistCardProps {
 export const ArtistCard = ({ artist }: ArtistCardProps) => {
     return (
         <Link href={`/artists/${artist.id}`} className="block">
-            <Card className="overflow-hidden">
-                <div className="relative h-48">
-                    <img src={artist.image} alt={artist.name} className="w-full h-full object-cover" />
+            <Card className="overflow-hidden h-full">
+                <div className="relative">
+                    <img src={artist.image} alt={artist.name} className="w-full aspect-[3/4] object-cover" />
                 </div>
                 <CardHeader>
                     <h3 className="text-lg font-semibold">{artist.name}</h3>
