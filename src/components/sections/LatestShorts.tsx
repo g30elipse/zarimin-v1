@@ -19,7 +19,7 @@ export function LatestShorts({ shorts }: LatestShortsProps) {
                     return <ShortCard className="col-span-1" key={short.id} content={short} />;
                 })}
                 <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1 grid grid-cols-2 gap-6">
-                    {shorts.slice(1, 4).map((short) => {
+                    {shorts.slice(1, 5).map((short) => {
                         return <ShortCard variant="compact" key={short.id} content={short} />;
                     })}
                 </div>
