@@ -80,7 +80,7 @@ export default async function NewsPage({ params }: NewsPageProps) {
             </article>
             <div className="max-w-4xl mx-auto mt-12 md:mt-24 pb-32">
                 <h2 className="text-xl font-bold mb-4">Related News</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6">
                     {relatedNews.map((article) => (
                         <NewsCard key={article.id} news={article} />
                     ))}

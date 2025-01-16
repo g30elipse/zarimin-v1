@@ -15,7 +15,7 @@ export default async function Home() {
     ]);
 
     return (
-        <main className="min-h-screen p-4 md:p-8 lg:space-y-44 space-y-24">
+        <main className="min-h-screen p-4 md:p-8 lg:space-y-44 space-y-24 pb-32 md:pb-32">
             <LatestShorts shorts={shorts} />
             <LatestNews news={news} />
             <TrendingCharts charts={charts} />

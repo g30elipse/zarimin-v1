@@ -12,9 +12,14 @@ export default async function Page(props: ServerPageProps<ArtistsSearchParams>) 
     return (
         <main className="min-h-screen p-4 md:p-8">
             <SectionWrapper>
-                <div className="flex flex-col gap-40 md:gap-80">
-                    <ArtistSpotlight spotlights={spotlights} />
-                    <ArtistGrid artists={artists} />
+                <div className="flex flex-col gap-8 md:gap-16 pb-32">
+                    <div className="mb-8">
+                        <ArtistSpotlight spotlights={spotlights} />
+                    </div>
+                    <div className="mb-8">
+                        <h1 className="text-4xl font-bold mb-8">Artists</h1>
+                        <ArtistGrid artists={artists} />
+                    </div>
                 </div>
             </SectionWrapper>
         </main>
@@ -38,5 +43,5 @@ async function searchArtists(params: ArtistsSearchParams) {
 }
 
 async function getLatestSpotlights() {
-    return spotlightApi.getLatestSpotlights(5);
+    return spotlightApi.getLatestSpotlights(2);
 }
