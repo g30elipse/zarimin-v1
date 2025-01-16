@@ -52,6 +52,6 @@ export async function fetchGraphQL(query: string, preview = false): Promise<any>
             }`,
         },
         body: JSON.stringify({ query }),
-        next: { tags: ['news', 'short', 'shorts'] },
+        // next: { tags: ['news', 'short', 'shorts'] },
     }).then((response) => response.json());
 }

@@ -53,6 +53,7 @@ export const shortsApi = {
                 }
               }`
         );
+        console.log('shorts', entries?.data?.shortCollection?.items);
 
         return (entries?.data?.shortCollection?.items || []).map(parseShort);
     },
