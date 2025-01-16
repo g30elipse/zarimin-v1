@@ -1,4 +1,4 @@
-import { BaseQuery, ContentfulResponse, Image, Tag } from '.';
+import { BaseQuery, ContentfulResponse, Image } from '.';
 
 export enum NewsSort {
     CREATED_DESC = 'sys_publishedAt_DESC',
@@ -16,11 +16,13 @@ export interface NewsFilters {
     perPage?: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface NewsQuery extends BaseQuery {}
 
 export interface NewsResponse extends ContentfulResponse {
     author: string;
     content: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         json: any;
     };
     // createdAt: string;
@@ -30,10 +32,12 @@ export interface NewsResponse extends ContentfulResponse {
     image: Image;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface News {
     id: string;
     title: string;
     excerpt: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     content: any;
     coverImage: string;
     date: string;

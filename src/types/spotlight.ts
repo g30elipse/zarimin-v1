@@ -1,5 +1,6 @@
-import { Artist, ArtistsResponse, BaseQuery, ContentfulResponse, Image, Song, Tag } from '.';
+import { Artist, ArtistsResponse, BaseQuery, ContentfulResponse, Image } from '.';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SpotlightQuery extends BaseQuery {}
 
 export enum SpotlightSort {

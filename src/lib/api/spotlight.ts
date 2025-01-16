@@ -57,7 +57,7 @@ function buildSpotlightFilter(_query: SpotlightFilters): string {
 
     const limit = query.perPage ?? 24;
     const skip = (query.page - 1) * limit;
-    let filterStringArr: string[] = [];
+    const filterStringArr: string[] = [];
 
     if (query.search) {
         // search title

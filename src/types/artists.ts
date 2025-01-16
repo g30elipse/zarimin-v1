@@ -1,5 +1,6 @@
-import { BaseQuery, ContentfulResponse, Image, Song, Tag } from '.';
+import { BaseQuery, ContentfulResponse, Image, Song } from '.';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ArtistsQuery extends BaseQuery {}
 
 export enum ArtistsSort {
@@ -18,6 +19,7 @@ export interface ArtistsFilters {
 export interface ArtistsResponse extends ContentfulResponse {
     name: string;
     about: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         json: any;
     };
     dateOfBirth?: string;
@@ -32,6 +34,7 @@ export interface Artist {
     name: string;
     slug: string;
     image?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     bio: any;
     genre: string[];
     popularSongs?: Song[];

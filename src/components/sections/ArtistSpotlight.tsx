@@ -1,4 +1,4 @@
-import { Artist, Spotlight } from '@/types';
+import { Spotlight } from '@/types';
 import ArtistSpotlight from '../spotlight/ArtistSpotlight';
 import SectionWrapper from '../layout/SectionWrapper';
 

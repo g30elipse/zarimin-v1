@@ -1,7 +1,6 @@
-import { Artist, News, Chart, NewsSort, ArtistsSort, Spotlight } from '@/types';
-import { dummyArtists, dummyNews, dummyCharts, dummyShorts } from '../dummy-data';
+import { Artist, News, Chart, NewsSort, Spotlight } from '@/types';
+import { dummyCharts } from '../dummy-data';
 import { Short } from '@/types/shorts';
-import { parseNews } from '../parsers';
 import { artistsApi, newsApi, shortsApi, spotlightApi } from '.';
 
 export const getLatestNews = async (): Promise<News[]> => {
@@ -42,6 +41,7 @@ export const getArtistById = async (id: string): Promise<Artist | null> => {
     return artistsApi.getArtistById(id);
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function fetchGraphQL(query: string, preview = false): Promise<any> {
     return fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`, {
         method: 'POST',
