@@ -1,6 +1,7 @@
 import { NewsCard } from '@/components/news/NewsCard';
 import { newsApi } from '@/lib/api';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation';
 
 interface NewsPageProps {
@@ -88,4 +89,22 @@ export default async function NewsPage({ params }: NewsPageProps) {
             </div>
         </main>
     );
+}
+
+export async function generateMetadata({ params }: NewsPageProps, parent: ResolvingMetadata): Promise<Metadata> {
+    // read route params
+    const id = (await params).newsId;
+
+    // fetch data
+    const news = await newsApi.getNewsBySlug(id);
+
+    // optionally access and extend (rather than replace) parent metadata
+    const previousImages = (await parent).openGraph?.images || [];
+    const images = [news?.coverImage, ...previousImages].filter(Boolean) as string[];
+    return {
+        title: news?.title,
+        openGraph: {
+            images,
+        },
+    };
 }
