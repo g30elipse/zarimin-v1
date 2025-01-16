@@ -6,7 +6,7 @@ export function parseNews(news: NewsResponse): News {
         category: news.contentfulMetadata.tags.map((tag) => tag.name),
         id: news.slug,
         title: news.heading,
-        excerpt: news.heading,
+        excerpt: news.excerpt,
         content: news.content.json,
         coverImage: news.image.url,
         date: news.sys?.publishedAt,

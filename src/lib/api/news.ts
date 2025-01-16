@@ -1,4 +1,4 @@
-import { News, NewsFilters } from '@/types';
+import { News, NewsFilters, NewsSort } from '@/types';
 import { parseNews } from '../parsers';
 import { fetchGraphQL } from './base';
 
@@ -12,9 +12,9 @@ const NEWS_GRAPHQL_FIELDS = `
   content {
     json
   }
-    author
+  author
+  excerpt
   searchText
-  createdAt
   slug
   sys {
     id
@@ -64,7 +64,7 @@ function buildNewsFilter(_query: NewsFilters): string {
     console.log('filterStringArr', filterStringArr);
 
     return `where: { ${filterStringArr.join(', ')} }, skip: ${skip}, limit: ${limit}, order: ${
-        query.sort ?? 'createdAt_DESC'
+        query.sort ?? NewsSort.CREATED_DESC
     }`;
 }
 
@@ -72,13 +72,15 @@ export const newsApi = {
     getRelatedNews: async (slug: string): Promise<News[]> => {
         const entries = await fetchGraphQL(
             `query {
-            newsCollection(where: { slug_not_in: "${slug}" }, order: createdAt_DESC, limit: 4) {
+            newsCollection(where: { slug_not_in: "${slug}" }, order: ${NewsSort.CREATED_DESC}, limit: 2) {
               items {
                 ${NEWS_GRAPHQL_FIELDS}
               }
             }
             }`
         );
+
+        console.log('entries', entries);
 
         return (entries?.data?.newsCollection?.items || []).map(parseNews);
     },

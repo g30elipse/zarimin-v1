@@ -66,33 +66,12 @@ export default async function NewsPage(props: ServerPageProps<NewsSearchParams>)
                         {/* Search Bar */}
                         <NewsSearch />
 
-                        {/* Sort Options */}
-                        {/* <div className="flex justify-end gap-2">
-                            {[
-                                { value: NewsSort.CREATED_DESC, label: 'Newest' },
-                                { value: NewsSort.CREATED_ASC, label: 'Oldest' },
-                                { value: NewsSort.TITLE_ASC, label: 'A-Z' },
-                                { value: NewsSort.TITLE_DESC, label: 'Z-A' },
-                            ].map((sort) => (
-                                <button
-                                    key={sort.value}
-                                    className={`px-3 py-1 text-sm border transition-colors ${
-                                        sort.value === filters.sort
-                                            ? 'border-primary bg-primary text-primary-foreground'
-                                            : 'border-accent hover:bg-accent/10'
-                                    }`}
-                                >
-                                    {sort.label}
-                                </button>
-                            ))}
-                        </div> */}
-
                         {/* News Grid */}
                         {paginatedNews.length > 0 ? (
                             <NewsGrid news={paginatedNews} />
                         ) : (
                             <div className="text-center py-12 text-gray-500">
-                                <p className="text-lg">No articles found matching your criteria.</p>
+                                <p className="text-lg">No news found matching your criteria.</p>
                                 <p className="mt-2">Try adjusting your filters or search term.</p>
                             </div>
                         )}
@@ -111,7 +90,6 @@ export default async function NewsPage(props: ServerPageProps<NewsSearchParams>)
 }
 
 async function searchNews(params: NewsSearchParams) {
-    console.log('Searching news with params:', params);
     const page = params.page ? parseInt(params.page) : 1;
     const category = params.category
         ? Array.isArray(params.category)

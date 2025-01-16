@@ -27,6 +27,7 @@ export interface NewsResponse extends ContentfulResponse {
     };
     // createdAt: string;
     heading: string;
+    excerpt: string;
     slug: string;
     searchText: string | null;
     image: Image;
