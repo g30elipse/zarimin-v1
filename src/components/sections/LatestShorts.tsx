@@ -30,7 +30,7 @@ export function LatestShorts({ shorts }: LatestShortsProps) {
                     <ShortCard key={short.id} content={short} />
                 ))}
             </div> */}
-            <div className="flex justify-start md:pl-24">
+            <div className="flex justify-center">
                 <Link
                     href="/shorts"
                     className="text-sm px-4 py-2 border-2 border-primary hover:bg-primary hover:text-primary-foreground transition-colors"

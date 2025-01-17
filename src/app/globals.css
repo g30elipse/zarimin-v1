@@ -67,6 +67,11 @@
         hover:shadow-md transition-shadow duration-200;
     }
 
+    .rounded-card {
+        @apply bg-card border border-accent shadow-md
+        hover:shadow-lg transition-shadow duration-200;
+    }
+
     .boxy-button {
         @apply px-4 py-2 border border-primary bg-primary text-primary-foreground 
         hover:bg-accent hover:border-accent hover:text-accent-foreground 

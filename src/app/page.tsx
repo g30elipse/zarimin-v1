@@ -16,14 +16,14 @@ export default async function Home() {
 
     return (
         <main className="min-h-screen  lg:space-y-44 space-y-24 pb-32 md:pb-32">
-            <div className="p-4 md:p-8">
+            <div className="px-4 md:px-8">
                 <LatestShorts shorts={shorts} />
             </div>
-            <div className="p-4 md:p-8">
+            <div className="px-4 md:px-8">
                 <LatestNews news={news} />
             </div>
             <TrendingCharts charts={charts} />
-            <div className="p-4 md:p-8">
+            <div className="px-4 md:px-8">
                 <ArtistSpotlights spotlights={spotlightArtists} />
             </div>
         </main>

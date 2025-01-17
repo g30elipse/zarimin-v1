@@ -8,7 +8,7 @@ interface ChartListProps {
 
 export const ChartList = ({ chart }: ChartListProps) => {
     return (
-        <Card>
+        <Card className="rounded-card">
             <CardHeader>
                 <CardTitle>{chart.title}</CardTitle>
             </CardHeader>
