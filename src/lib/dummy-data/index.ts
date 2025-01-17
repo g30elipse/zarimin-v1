@@ -1,29 +1,7 @@
-import { Artist, Song, News, Chart } from '@/types';
+import { Artist, News, Chart } from '@/types';
 import { Short } from '@/types/shorts';
 
-export const dummyArtists: Artist[] = [
-    {
-        id: '1',
-        name: 'Bodo Waves',
-        image: 'https://plus.unsplash.com/premium_photo-1682096252599-e8536cd97d2b?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        bio: 'Pioneering fusion artist combining traditional Bodo music with modern elements',
-        genre: ['Fusion', 'Traditional'],
-        popularSongs: [
-            {
-                id: 's1',
-                title: 'Modern Roots',
-                artist: 'Bodo Waves',
-                albumCover:
-                    'https://images.unsplash.com/photo-1471478331149-c72f17e33c73?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                duration: '3:45',
-                streams: 150000,
-            },
-        ],
-    },
-    // Add more dummy artists...
-];
-
-export const dummySongs: Song[] = [
+export const dummySongs: any[] = [
     {
         id: 's1',
         title: 'Modern Roots',
@@ -94,26 +72,22 @@ export const dummyCharts: Chart[] = [
     {
         id: 'c1',
         title: 'Top 10 Local',
-        type: 'local',
-        songs: dummySongs.slice(0, 2),
+        list: dummySongs.slice(0, 5).map((song) => song.title),
     },
     {
         id: 'c2',
         title: 'Top 10 Global',
-        type: 'global',
-        songs: dummySongs.slice(2, 7),
+        list: dummySongs.slice(2, 7).map((song) => song.title),
     },
     {
         id: 'c3',
         title: 'Top 5 Local Artists',
-        type: 'local',
-        songs: dummySongs.slice(3, 5),
+        list: dummySongs.slice(3, 5).map((song) => song.title),
     },
     {
         id: 'c4',
         title: 'Top 5 Upcoming Artists',
-        type: 'upcoming',
-        songs: dummySongs.slice(0, 3),
+        list: dummySongs.slice(0, 3).map((song) => song.title),
     },
 ];
 

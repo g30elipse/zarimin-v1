@@ -1,3 +1,4 @@
+import { ChartItem } from '@/components/charts/ChartItem';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { getAllCharts } from '@/lib/api/base';
 import { OG_IMAGE_LOGO } from '@/lib/constants';
@@ -24,24 +25,8 @@ export default async function ChartsPage() {
                         <div key={chart.id} className="boxy-card p-6">
                             <h2 className="text-2xl font-bold mb-6">{chart.title}</h2>
                             <div className="space-y-4">
-                                {chart.songs.map((song, index) => (
-                                    <div
-                                        key={song.id}
-                                        className="flex items-center gap-4 p-3 hover:bg-secondary border-2 
-                           border-transparent hover:border-border transition-colors"
-                                    >
-                                        <span className="text-lg font-bold w-8">{index + 1}</span>
-                                        <img
-                                            src={song.albumCover}
-                                            alt={song.title}
-                                            className="w-12 h-12 object-cover"
-                                        />
-                                        <div>
-                                            <h3 className="font-bold">{song.title}</h3>
-                                            <p className="text-sm text-gray-600">{song.artist}</p>
-                                        </div>
-                                        <div className="ml-auto text-sm text-gray-500">{song.duration}</div>
-                                    </div>
+                                {chart.list.map((item, index) => (
+                                    <ChartItem key={index} item={item} position={index + 1} />
                                 ))}
                             </div>
                         </div>

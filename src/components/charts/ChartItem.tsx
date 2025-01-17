@@ -1,20 +1,17 @@
-import { Song } from '@/types';
-
 interface ChartItemProps {
-    song: Song;
+    item: string;
     position: number;
 }
 
-export const ChartItem = ({ song, position }: ChartItemProps) => {
+export const ChartItem = ({ item, position }: ChartItemProps) => {
     return (
-        <div className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">
-            <span className="text-lg font-bold w-8 text-gray-500">{position}</span>
-            <img src={song.albumCover} alt={song.title} className="w-12 h-12 object-cover rounded" />
+        <div className="flex items-center gap-4 p-3 transition-colors">
+            <span className="text-2xl font-bold w-10 h-10 flex text-white items-center justify-center bg-red-700">
+                {position}
+            </span>
             <div className="flex-grow">
-                <h4 className="font-medium line-clamp-1">{song.title}</h4>
-                <p className="text-sm text-gray-600">{song.artist}</p>
+                <h4 className="font-medium line-clamp-1 text-gray-500">{item}</h4>
             </div>
-            <div className="text-sm text-gray-500">{song.duration}</div>
         </div>
     );
 };

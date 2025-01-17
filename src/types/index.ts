@@ -3,6 +3,7 @@ export * from './shorts';
 export * from './artists';
 export * from './spotlight';
 export * from './team';
+export * from './charts';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface ServerPageProps<SP = Record<string, any>, P = Record<string, any>> {
@@ -39,15 +40,6 @@ export interface BaseQuery {
     // category?: string;
 }
 
-export interface Song {
-    id: string;
-    title: string;
-    artist: string;
-    albumCover: string;
-    duration: string;
-    streams: number;
-}
-
 export interface Tag {
     id: string;
     name: string;
@@ -57,11 +49,4 @@ export interface Image {
     url: string;
     width: number;
     height: number;
-}
-
-export interface Chart {
-    id: string;
-    title: string;
-    type: 'local' | 'global' | 'upcoming';
-    songs: Song[];
 }

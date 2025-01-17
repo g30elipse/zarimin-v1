@@ -14,8 +14,8 @@ export const ChartList = ({ chart }: ChartListProps) => {
             </CardHeader>
             <CardContent>
                 <div className="space-y-2">
-                    {chart.songs.map((song, index) => (
-                        <ChartItem key={song.id} song={song} position={index + 1} />
+                    {chart.list.map((item, index) => (
+                        <ChartItem key={index} item={item} position={index + 1} />
                     ))}
                 </div>
             </CardContent>

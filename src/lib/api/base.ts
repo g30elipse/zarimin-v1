@@ -21,11 +21,6 @@ export const getLatestShorts = async (count: number): Promise<Short[]> => {
     });
 };
 
-export const getChartsByType = async (type: string): Promise<Chart[]> => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    return dummyCharts.filter((chart) => chart.type === type);
-};
-
 export const getArtistSpotlight = async (): Promise<Spotlight[]> => {
     // await new Promise((resolve) => setTimeout(resolve, 1000));
     // return dummyArtists.slice(0, 5);
