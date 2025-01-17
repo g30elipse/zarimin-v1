@@ -21,7 +21,7 @@ export default async function NewsPage({ params }: NewsPageProps) {
 
     return (
         <main className="min-h-screen p-4 md:p-8">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto mt-6 md:mt-8">
                 <h1 className="text-3xl font-bold mb-4 text-center">{news.title}</h1>
                 <div className="flex items-center gap-4 text-gray-600 mb-8 pb-6 justify-center text-sm">
                     <span>{news.author}</span>

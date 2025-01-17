@@ -29,10 +29,10 @@ function NewsSearch() {
     };
 
     return (
-        <form className="relative" onSubmit={handleSubmit}>
+        <form className="relative md:shadow-md" onSubmit={handleSubmit}>
             <input
                 type="text"
-                placeholder="Search articles..."
+                placeholder="Search news..."
                 value={searchText}
                 onChange={handleSearchTextChange}
                 className="w-full px-4 py-2 border border-accent bg-background 
@@ -41,7 +41,7 @@ function NewsSearch() {
             <button
                 type="submit"
                 onClick={() => updateUrl(searchText)}
-                className="absolute inset-y-0 right-0 px-4 py-2 bg-primary text-primary-foreground"
+                className="absolute inset-y-0 right-0 px-4 py-2 bg-primary text-primary-foreground shadow-md hover:bg-secondary-foreground transition-colors"
             >
                 Search
             </button>

@@ -23,7 +23,7 @@ export default async function Page(props: ServerPageProps<ArtistsSearchParams>) 
         <main className="min-h-screen p-4 md:p-8">
             <SectionWrapper>
                 <div className="flex flex-col gap-8 md:gap-16 pb-32">
-                    <div className="mb-8">
+                    <div className="mb-8 md:mb-16 lg:mb-32">
                         <ArtistSpotlight spotlights={spotlights} />
                     </div>
                     <div className="mb-8">
@@ -53,5 +53,5 @@ async function searchArtists(params: ArtistsSearchParams) {
 }
 
 async function getLatestSpotlights() {
-    return spotlightApi.getLatestSpotlights(2);
+    return spotlightApi.getLatestSpotlights(4);
 }

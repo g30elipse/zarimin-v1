@@ -12,8 +12,11 @@ module.exports = {
         },
         extend: {
             fontFamily: {
+                // sans: ['var(--font-poppins)'],
                 sans: ['var(--font-crimson-text)'],
-                serif: ['var(--font-playfair)'],
+                serif: ['var(--font-crimson-text)'],
+                // serif: ['var(--font-fjalla-one)'],
+                // serif: ['var(--font-playfair)'],
             },
             colors: {
                 border: 'hsl(var(--border))',

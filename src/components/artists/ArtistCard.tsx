@@ -8,7 +8,7 @@ interface ArtistCardProps {
 
 export const ArtistCard = ({ artist }: ArtistCardProps) => {
     return (
-        <Link href={`/artists/${artist.id}`} className="block">
+        <Link href={`/artists/${artist.id}`} className="block hover:-translate-y-2 transition-transform">
             <Card className="overflow-hidden h-full">
                 <div className="relative">
                     <img src={artist.image} alt={artist.name} className="w-full aspect-[3/4] object-cover" />

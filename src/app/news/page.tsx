@@ -48,27 +48,29 @@ export default async function NewsPage(props: ServerPageProps<NewsSearchParams>)
         <main className="min-h-screen p-4 md:p-8">
             <SectionWrapper>
                 {/* Header */}
-                <div className="mb-8">
-                    <h1 className="text-4xl font-bold mb-4">Latest News</h1>
-                    <div className="flex items-center gap-2 text-accent">
-                        <span>{filteredNews.length} news found</span>
-                        {subtitle.length ? <span>• {subtitle}</span> : null}
-                    </div>
-                </div>
 
                 {/* Main Content */}
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                     {/* Filters Sidebar */}
                     <div className="lg:col-span-1">
-                        <div className="sticky md:top-24">
+                        <div className="mb-8">
+                            <h1 className="text-4xl font-bold mb-4">Latest News</h1>
+                            <div className="flex items-center gap-2 text-accent">
+                                <span>{filteredNews.length} news found</span>
+                                {subtitle.length ? <span>• {subtitle}</span> : null}
+                            </div>
+                        </div>
+                        <div className="md:sticky md:top-24">
                             <NewsFilters categories={categories} authors={authors} />
                         </div>
                     </div>
 
                     {/* News Grid */}
-                    <div className="lg:col-span-3 space-y-8">
+                    <div className="lg:col-span-3 space-y-8 pb-24">
                         {/* Search Bar */}
-                        <NewsSearch />
+                        <div className="md:sticky md:top-24 z-10">
+                            <NewsSearch />
+                        </div>
 
                         {/* News Grid */}
                         {paginatedNews.length > 0 ? (

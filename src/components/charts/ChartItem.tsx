@@ -9,7 +9,7 @@ export const ChartItem = ({ item, position }: ChartItemProps) => {
     const subtitle = textArr.slice(1).join(',');
 
     return (
-        <div className="flex items-center gap-4 p-3 transition-colors">
+        <div className="flex items-center gap-4 p-3 hover:translate-x-1 transition-transform">
             <span className="text-2xl font-bold w-12 h-12 flex text-white items-center justify-center bg-red-700">
                 {position.toString()}
             </span>
