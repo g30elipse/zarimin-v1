@@ -12,6 +12,7 @@ const TEAM_GRAPHQL_FIELDS = `
   shortDescription
     dateOfBirth
   slug
+  role
    contentfulMetadata {
         tags {
             id
