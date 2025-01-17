@@ -13,8 +13,8 @@ export const TeamMember = ({ name, role, image, bio }: TeamMemberProps) => {
     // const age = dob ? new Date().getFullYear() - new Date(dob).getFullYear() : null;
     return (
         <Card className="overflow-hidden">
-            <div className="relative h-64">
-                <img src={image} alt={name} className="w-full h-full object-cover" />
+            <div className="relative">
+                <img src={image} alt={name} className="w-full aspect-square object-cover" />
             </div>
             <CardHeader>
                 <h3 className="text-xl font-semibold">{name}</h3>
