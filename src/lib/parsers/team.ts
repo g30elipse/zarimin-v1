@@ -9,5 +9,6 @@ export function parseTeamMember(teamMember: TeamMembersResponse): TeamMember {
         bio: teamMember.shortDescription ?? '',
         tags: teamMember.contentfulMetadata.tags.map((tag) => tag.name),
         slug: teamMember.slug,
+        dob: teamMember.dateOfBirth,
     };
 }

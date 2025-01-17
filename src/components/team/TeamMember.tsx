@@ -6,9 +6,11 @@ interface TeamMemberProps {
     role: string;
     image: string;
     bio: string;
+    dob?: string;
 }
 
 export const TeamMember = ({ name, role, image, bio }: TeamMemberProps) => {
+    // const age = dob ? new Date().getFullYear() - new Date(dob).getFullYear() : null;
     return (
         <Card className="overflow-hidden">
             <div className="relative h-64">

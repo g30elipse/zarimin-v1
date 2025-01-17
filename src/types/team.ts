@@ -39,6 +39,7 @@ export interface TeamMember {
     role?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     bio: string;
+    dob?: string;
     tags: string[];
 }
 
