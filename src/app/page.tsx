@@ -1,10 +1,10 @@
-import { getAllCharts, getArtistSpotlight, getLatestShorts } from '@/lib/api/base';
+import { getArtistSpotlight, getLatestShorts } from '@/lib/api/base';
 import { LatestNews } from '@/components/sections/LatestNews';
 import { TrendingCharts } from '@/components/sections/TrendingCharts';
 import { ArtistSpotlights } from '@/components/sections/ArtistSpotlight';
 import { LatestShorts } from '@/components/sections/LatestShorts';
 import { NewsSort } from '@/types';
-import { newsApi } from '@/lib/api';
+import { getHomePageCharts, newsApi } from '@/lib/api';
 import { Metadata } from 'next';
 import { OG_IMAGE_LOGO } from '@/lib/constants';
 
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default async function Home() {
     const [news, charts, spotlightArtists, shorts] = await Promise.all([
         getAllNews(),
-        getAllCharts(),
+        getHomePageCharts(),
         getArtistSpotlight(),
         getLatestShorts(5),
     ]);

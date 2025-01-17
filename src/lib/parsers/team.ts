@@ -7,7 +7,7 @@ export function parseTeamMember(teamMember: TeamMembersResponse): TeamMember {
         image: teamMember.profileImage?.url,
         role: teamMember.role,
         bio: teamMember.shortDescription ?? '',
-        genre: teamMember.contentfulMetadata.tags.map((tag) => tag.name),
+        tags: teamMember.contentfulMetadata.tags.map((tag) => tag.name),
         slug: teamMember.slug,
     };
 }

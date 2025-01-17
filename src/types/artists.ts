@@ -1,4 +1,4 @@
-import { BaseQuery, ContentfulResponse, Image, Song } from '.';
+import { BaseQuery, ContentfulResponse, Image } from '.';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ArtistsQuery extends BaseQuery {}
@@ -37,7 +37,6 @@ export interface Artist {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     bio: any;
     genre: string[];
-    popularSongs?: Song[];
 }
 
 export interface ArtistsSearchParams extends Record<string, string | string[] | undefined> {

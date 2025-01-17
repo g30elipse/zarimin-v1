@@ -68,29 +68,6 @@ export const dummyNews: News[] = [
     // Add more dummy news...
 ];
 
-export const dummyCharts: Chart[] = [
-    {
-        id: 'c1',
-        title: 'Top 10 Local',
-        list: dummySongs.slice(0, 5).map((song) => song.title),
-    },
-    {
-        id: 'c2',
-        title: 'Top 10 Global',
-        list: dummySongs.slice(2, 7).map((song) => song.title),
-    },
-    {
-        id: 'c3',
-        title: 'Top 5 Local Artists',
-        list: dummySongs.slice(3, 5).map((song) => song.title),
-    },
-    {
-        id: 'c4',
-        title: 'Top 5 Upcoming Artists',
-        list: dummySongs.slice(0, 3).map((song) => song.title),
-    },
-];
-
 export const dummyShorts: Short[] = [
     {
         id: 's1',

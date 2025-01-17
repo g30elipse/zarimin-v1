@@ -1,4 +1,4 @@
-import { BaseQuery, ContentfulResponse, Image, Song } from '.';
+import { BaseQuery, ContentfulResponse, Image } from '.';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface TeamMembersQuery extends BaseQuery {}
@@ -39,8 +39,7 @@ export interface TeamMember {
     role?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     bio: string;
-    genre: string[];
-    popularSongs?: Song[];
+    tags: string[];
 }
 
 export interface TeamMembersSearchParams extends Record<string, string | string[] | undefined> {

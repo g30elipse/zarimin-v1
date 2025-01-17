@@ -1,7 +1,6 @@
 import { Artist, News, Chart, NewsSort, Spotlight } from '@/types';
-import { dummyCharts } from '../dummy-data';
 import { Short } from '@/types/shorts';
-import { artistsApi, newsApi, shortsApi, spotlightApi } from '.';
+import { artistsApi, chartsApi, newsApi, shortsApi, spotlightApi } from '.';
 
 export const getLatestNews = async (): Promise<News[]> => {
     return newsApi.getAllNews({
@@ -28,8 +27,18 @@ export const getArtistSpotlight = async (): Promise<Spotlight[]> => {
 };
 
 export const getAllCharts = async (): Promise<Chart[]> => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    return dummyCharts;
+    return chartsApi.searchCharts({
+        page: 1,
+        perPage: 4,
+    });
+};
+
+export const getHomePageCharts = async (): Promise<Chart[]> => {
+    return chartsApi.searchCharts({
+        page: 1,
+        perPage: 4,
+        showInHomePage: true,
+    });
 };
 
 export const getArtistById = async (id: string): Promise<Artist | null> => {
