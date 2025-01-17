@@ -5,8 +5,10 @@ export function parseArtist(artist: ArtistsResponse): Artist {
         id: artist.slug,
         name: artist.name,
         image: artist.profileImage?.url,
+        dob: artist.dateOfBirth,
         bio: artist.about.json,
         genre: artist.contentfulMetadata.tags.map((tag) => tag.name),
         slug: artist.slug,
+        socialLinks: artist.socialLinks,
     };
 }

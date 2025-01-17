@@ -1,6 +1,8 @@
 import { getArtistById } from '@/lib/api/base';
+import { getSocialLinkMeta } from '@/lib/constants';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Metadata, ResolvingMetadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 interface ArtistPageProps {
@@ -37,6 +39,14 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
         notFound();
     }
 
+    const dateOfBirth = artist.dob ? new Date(artist.dob) : null;
+    // format date of birth: DD MMM YYYY
+    const formattedDateOfBirth = dateOfBirth
+        ? `${dateOfBirth.getDate()} ${dateOfBirth.toLocaleString('default', {
+              month: 'short',
+          })} ${dateOfBirth.getFullYear()}`
+        : null;
+
     return (
         <main className="min-h-screen p-4 md:p-8">
             <article className="max-w-5xl px-4 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 py-8">
@@ -48,8 +58,11 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
                 {/* Artist Info */}
                 <div className="space-y-6 col-span-1 md:col-span-1">
                     <div className="boxy-card p-6">
-                        <h1 className="text-4xl font-bold mb-8">{artist.name}</h1>
-                        <div className="flex flex-wrap gap-2">
+                        <h1 className="text-4xl font-bold ">{artist.name}</h1>
+                        {formattedDateOfBirth ? (
+                            <p className="text-gray-600 text-sm">DOB: {formattedDateOfBirth}</p>
+                        ) : null}
+                        <div className="flex flex-wrap gap-2 mt-8">
                             {artist.genre.map((g) => (
                                 <span
                                     key={g}
@@ -63,6 +76,32 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
                         <p className="max-w-4xl prose text-gray-600  mt-6">
                             {documentToReactComponents(artist.bio, { preserveWhitespace: true })}
                         </p>
+                    </div>
+                    <div className="boxy-card p-6">
+                        <h1 className="font-bold mb-8">LINKS</h1>
+                        <div className="flex flex-col flex-wrap gap-4">
+                            {artist.socialLinks.map((link) => {
+                                const meta = getSocialLinkMeta(link);
+                                return (
+                                    <a
+                                        key={link}
+                                        href={link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-gray-600 hover:text-primary flex items-center gap-2"
+                                    >
+                                        <Image
+                                            src={meta.icon}
+                                            width={24}
+                                            height={24}
+                                            className="h-6"
+                                            alt={meta.label}
+                                        />
+                                        <span className="ml-2">{meta.label}</span>
+                                    </a>
+                                );
+                            })}
+                        </div>
                     </div>
                 </div>
             </article>

@@ -26,7 +26,7 @@ export interface ArtistsResponse extends ContentfulResponse {
     slug: string;
     searchText: string | null;
     profileImage?: Image;
-    socialLinks: any[];
+    socialLinks: string[];
 }
 
 export interface Artist {
@@ -34,9 +34,11 @@ export interface Artist {
     name: string;
     slug: string;
     image?: string;
+    dob?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     bio: any;
     genre: string[];
+    socialLinks: string[];
 }
 
 export interface ArtistsSearchParams extends Record<string, string | string[] | undefined> {
