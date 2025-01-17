@@ -20,8 +20,8 @@ export const ChartList = ({ chart }: ChartListProps) => {
     return (
         <Card className="rounded-card">
             <CardHeader>
-                <CardTitle>{chart.title}</CardTitle>
                 <div className="flex justify-between text-sm text-gray-500">{createdAt}</div>
+                <CardTitle>{chart.title}</CardTitle>
             </CardHeader>
             <CardContent>
                 <div className="space-y-2">
