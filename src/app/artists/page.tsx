@@ -2,7 +2,17 @@ import { ArtistGrid } from '@/components/artists/ArtistGrid';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import ArtistSpotlight from '@/components/spotlight/ArtistSpotlight';
 import { artistsApi, spotlightApi } from '@/lib/api';
+import { OG_IMAGE_LOGO } from '@/lib/constants';
 import { ArtistsSearchParams, ServerPageProps } from '@/types';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Artists - ZARIMIN',
+    openGraph: {
+        images: [OG_IMAGE_LOGO],
+    },
+    description: 'Artists from our community',
+};
 
 export default async function Page(props: ServerPageProps<ArtistsSearchParams>) {
     const searchParams = await props.searchParams;

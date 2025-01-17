@@ -3,9 +3,13 @@ import SectionWrapper from '@/components/layout/SectionWrapper';
 import { TeamMember } from '@/components/team/TeamMember';
 import { ServerPageProps, TeamMembersSearchParams } from '@/types';
 import { teamApi } from '@/lib/api';
+import { OG_IMAGE_LOGO } from '@/lib/constants';
 
 export const metadata: Metadata = {
     title: 'Our Team - ZARIMIN',
+    openGraph: {
+        images: [OG_IMAGE_LOGO],
+    },
     description:
         'Meet the passionate team behind ZARIMIN, led by founder Dakhwr, dedicated to promoting Bodo music and culture.',
     keywords: ['ZARIMIN team', 'Dakhwr', 'Bodo music', 'music magazine team'],

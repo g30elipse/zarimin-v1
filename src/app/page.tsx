@@ -5,6 +5,18 @@ import { ArtistSpotlights } from '@/components/sections/ArtistSpotlight';
 import { LatestShorts } from '@/components/sections/LatestShorts';
 import { NewsSort } from '@/types';
 import { newsApi } from '@/lib/api';
+import { Metadata } from 'next';
+import { OG_IMAGE_LOGO } from '@/lib/constants';
+
+export const metadata: Metadata = {
+    title: 'ZARIMIN',
+    openGraph: {
+        images: [OG_IMAGE_LOGO],
+    },
+    description:
+        'ZARIMIN is a music magazine dedicated to promoting and preserving Bodo music culture while connecting it with the global music community.',
+    keywords: ['ZARIMIN', 'Dakhwr', 'Mukut', 'Hironya', 'Bodo music', 'music magazine team'],
+};
 
 export default async function Home() {
     const [news, charts, spotlightArtists, shorts] = await Promise.all([

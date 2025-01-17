@@ -2,9 +2,13 @@ import { Metadata } from 'next';
 import { ShortGrid } from '@/components/shorts/ShortGrid';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { shortsApi } from '@/lib/api';
+import { OG_IMAGE_LOGO } from '@/lib/constants';
 
 export const metadata: Metadata = {
     title: 'Shorts - ZARIMIN',
+    openGraph: {
+        images: [OG_IMAGE_LOGO],
+    },
     description: 'Quick updates and insights from the world of Bodo music',
 };
 

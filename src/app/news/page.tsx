@@ -8,9 +8,13 @@ import SectionWrapper from '@/components/layout/SectionWrapper';
 import NewsSearch from './_search';
 import { newsApi } from '@/lib/api';
 import { ServerPageProps } from '@/types';
+import { OG_IMAGE_LOGO } from '@/lib/constants';
 
 export const metadata: Metadata = {
     title: 'News - ZARIMIN',
+    openGraph: {
+        images: [OG_IMAGE_LOGO],
+    },
     description: 'Latest news and updates from the world of Bodo music and entertainment',
 };
 

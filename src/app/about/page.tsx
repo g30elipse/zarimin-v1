@@ -2,9 +2,13 @@
 import type { Metadata } from 'next';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { Card, CardContent } from '@/components/ui/card';
+import { OG_IMAGE_LOGO } from '@/lib/constants';
 
 export const metadata: Metadata = {
     title: 'About ZARIMIN - Bodo Music and Entertainment Magazine',
+    openGraph: {
+        images: [OG_IMAGE_LOGO],
+    },
     description:
         'Learn about ZARIMIN, a dynamic music and entertainment magazine founded in 2024, dedicated to celebrating and promoting Bodo music culture globally.',
     keywords: ['ZARIMIN', 'Bodo music', 'music magazine', 'entertainment', 'music culture'],

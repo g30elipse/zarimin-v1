@@ -1,5 +1,15 @@
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { getAllCharts } from '@/lib/api/base';
+import { OG_IMAGE_LOGO } from '@/lib/constants';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Charts - ZARIMIN',
+    openGraph: {
+        images: [OG_IMAGE_LOGO],
+    },
+    description: 'Discover the latest music charts from the world of Bodo music',
+};
 
 export default async function ChartsPage() {
     const charts = await getAllCharts();
