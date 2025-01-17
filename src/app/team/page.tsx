@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { TeamMember } from '@/components/team/TeamMember';
+import { ServerPageProps, TeamMembersSearchParams } from '@/types';
+import { teamApi } from '@/lib/api';
 
 export const metadata: Metadata = {
     title: 'Our Team - ZARIMIN',
@@ -9,29 +11,10 @@ export const metadata: Metadata = {
     keywords: ['ZARIMIN team', 'Dakhwr', 'Bodo music', 'music magazine team'],
 };
 
-const teamMembers = [
-    {
-        name: 'Dakhwr',
-        role: 'Founder & Editor-in-Chief',
-        image: '/team/founder.jpg',
-        bio: 'A passionate Bodo music enthusiast and entrepreneur who founded ZARIMIN with the vision of bringing Bodo music to the global stage.',
-    },
-    {
-        name: 'Sarah Chen',
-        role: 'Music Editor',
-        image: '/team/editor.jpg',
-        bio: 'An experienced music journalist with a deep appreciation for cultural diversity in music.',
-    },
-    {
-        name: 'Rajesh Kumar',
-        role: 'Technical Director',
-        image: '/team/tech.jpg',
-        bio: 'Oversees the digital presence of ZARIMIN, ensuring our platform reaches music lovers worldwide.',
-    },
-    // Add more team members as needed
-];
+export default async function TeamPage(props: ServerPageProps<TeamMembersSearchParams>) {
+    const searchParams = await props.searchParams;
+    const team = await searchTeamMembers(searchParams);
 
-export default function TeamPage() {
     return (
         <main className="min-h-screen">
             {/* Hero Section */}
@@ -55,12 +38,12 @@ export default function TeamPage() {
 
                 {/* Team Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {teamMembers.map((member) => (
+                    {team.map((member) => (
                         <TeamMember
                             key={member.name}
                             name={member.name}
-                            role={member.role}
-                            image={member.image}
+                            role={member.role ?? ''}
+                            image={member.image ?? ''}
                             bio={member.bio}
                         />
                     ))}
@@ -79,4 +62,21 @@ export default function TeamPage() {
             </SectionWrapper>
         </main>
     );
+}
+
+async function searchTeamMembers(params: TeamMembersSearchParams) {
+    const page = params.page ? parseInt(params.page) : 1;
+    const category = params.category
+        ? Array.isArray(params.category)
+            ? params.category
+            : [params.category]
+        : undefined;
+
+    return teamApi.searchTeamMembers({
+        page,
+        perPage: 20,
+        search: params.search,
+        sort: params.sort,
+        category,
+    });
 }

@@ -2,6 +2,7 @@ export * from './news';
 export * from './shorts';
 export * from './artists';
 export * from './spotlight';
+export * from './team';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface ServerPageProps<SP = Record<string, any>, P = Record<string, any>> {
