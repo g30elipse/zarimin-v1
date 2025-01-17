@@ -11,10 +11,10 @@ export const NewsCard = ({ news }: NewsCardProps) => {
         <Link href={`/news/${news.id}`} className="block">
             <Card className="overflow-hidden grid grid-cols-3">
                 {/* <Card  className="overflow-hidden h-full flex flex-col"> */}
-                <div className="relative h-48">
+                <div className="relative h-48 col-span-3 md:col-span-1">
                     <img src={news.coverImage} alt={news.title} className="w-full h-full object-cover" />
                 </div>
-                <div className="col-span-2 h-full justify-between flex flex-col">
+                <div className="h-full justify-between flex flex-col col-span-3 md:col-span-2">
                     <CardHeader>
                         <CardTitle className="text-xl">{news.title}</CardTitle>
                     </CardHeader>

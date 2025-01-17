@@ -1,10 +1,10 @@
-import { getLatestNews, getAllCharts, getArtistSpotlight, getLatestShorts } from '@/lib/api/base';
+import { getAllCharts, getArtistSpotlight, getLatestShorts } from '@/lib/api/base';
 import { LatestNews } from '@/components/sections/LatestNews';
 import { TrendingCharts } from '@/components/sections/TrendingCharts';
 import { ArtistSpotlights } from '@/components/sections/ArtistSpotlight';
 import { LatestShorts } from '@/components/sections/LatestShorts';
 import { NewsSort } from '@/types';
-import { newsApi, shortsApi } from '@/lib/api';
+import { newsApi } from '@/lib/api';
 
 export default async function Home() {
     const [news, charts, spotlightArtists, shorts] = await Promise.all([
@@ -15,11 +15,17 @@ export default async function Home() {
     ]);
 
     return (
-        <main className="min-h-screen p-4 md:p-8 lg:space-y-44 space-y-24 pb-32 md:pb-32">
-            <LatestShorts shorts={shorts} />
-            <LatestNews news={news} />
+        <main className="min-h-screen  lg:space-y-44 space-y-24 pb-32 md:pb-32">
+            <div className="p-4 md:p-8">
+                <LatestShorts shorts={shorts} />
+            </div>
+            <div className="p-4 md:p-8">
+                <LatestNews news={news} />
+            </div>
             <TrendingCharts charts={charts} />
-            <ArtistSpotlights spotlights={spotlightArtists} />
+            <div className="p-4 md:p-8">
+                <ArtistSpotlights spotlights={spotlightArtists} />
+            </div>
         </main>
     );
 }
