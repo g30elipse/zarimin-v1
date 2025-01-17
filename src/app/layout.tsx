@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/components/ui/ThemeProvider';
 import { Header } from '@/components/layout/Header';
 
 import { Playfair_Display, Source_Sans_3, Unica_One, Crimson_Text } from 'next/font/google';
+import { OG_IMAGE_LOGO } from '@/lib/constants';
 
 // Initialize Unica One font
 const unicaOne = Unica_One({
