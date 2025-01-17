@@ -58,8 +58,8 @@
     body {
         @apply text-foreground;
         /* @apply bg-background text-foreground; */
-        background: #ece9e6; /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #ffffff, #ece9e6); /* Chrome 10-25, Safari 5.1-6 */
+        background: #ece9e6;
+        background: -webkit-linear-gradient(to right, #ffffff, #ece9e6);
         background: linear-gradient(
             to right,
             #ffffff,
