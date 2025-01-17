@@ -4,27 +4,35 @@
 
 @layer base {
     :root {
-        --background: #fffefb; /* #FBF8EF */
+        /* --background: #fffefb; */
         /* --background: 48 67% 96%; #FBF8EF */
-        --foreground: 16 94% 57%; /* #F96E2A */
+        /* --foreground: 16 94% 57%; #F96E2A */
+        --foreground: 40, 73%, 38%;
+        --ring: 40, 73%, 38%;
+        --card-foreground: 40, 73%, 38%;
+        --primary: 40, 73%, 38%;
+        --background: 45, 50%, 97%;
+        --card: 45, 50%, 97%;
+        --primary-foreground: 45, 50%, 97%;
+        --accent-foreground: 45, 50%, 97%;
 
-        --card: #fffefb; /* #FBF8EF */
+        /* --card: #fffefb; */
         /* --card: 48 67% 96%; #FBF8EF */
-        --card-foreground: 16 94% 57%; /* #F96E2A */
+        /* --card-foreground: 16 94% 57%; #F96E2A */
 
-        --primary: 16 94% 57%; /* #F96E2A */
-        --primary-foreground: 48 67% 96%; /* #FBF8EF */
+        /* --primary: 16 94% 57%; #F96E2A */
+        /* --primary-foreground: 48 67% 96%; #FBF8EF */
 
         --secondary: 196 52% 87%; /* #C9E6F0 */
         --secondary-foreground: 203 35% 64%; /* #78B3CE */
 
         --accent: 203 35% 64%; /* #78B3CE */
-        --accent-foreground: 48 67% 96%; /* #FBF8EF */
+        /* --accent-foreground: 48 67% 96%; #FBF8EF */
 
         --border: 203 35% 64%; /* #78B3CE */
         --input: 203 35% 64%; /* #78B3CE */
 
-        --ring: 16 94% 57%; /* #F96E2A */
+        /* --ring: 16 94% 57%; #F96E2A */
 
         --radius: 0px; /* This ensures boxy corners */
     }

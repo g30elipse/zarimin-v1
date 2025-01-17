@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { NavLink } from './NavLink';
+import Image from 'next/image';
 
 export const Header = () => {
     return (
@@ -7,7 +8,7 @@ export const Header = () => {
             <div className="max-w-7xl mx-auto px-4 py-6">
                 <nav className="flex flex-col md:flex-row items-center justify-between gap-4">
                     <Link href="/" className="text-3xl font-bold text-primary hover:text-accent transition-colors">
-                        ZARIMIN
+                        <Image src="/logo-black.jpg" alt="Logo" width={150} height={50} />
                     </Link>
                     <div className="flex flex-wrap justify-center gap-4">
                         <NavLink href="/news">All News</NavLink>
