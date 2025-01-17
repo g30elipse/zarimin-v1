@@ -24,7 +24,7 @@ const SpotlightCard: FC<SpotlightCardProps> = (props) => {
                 </p>
                 <div className="w-full flex flex-col justify-between h-full flex-1">
                     <CardHeader>
-                        <CardTitle className="text-md">{spotlight.title}</CardTitle>
+                        <CardTitle className="text-md text-gray-500">{spotlight.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="flex-1 justify-end items-center flex gap-2 col-span-3 text-xs text-gray-500">
                         <img src={artist.image} alt={artist.name} className="w-12 h-12 rounded-full" />

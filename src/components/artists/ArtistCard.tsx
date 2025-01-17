@@ -19,7 +19,7 @@ export const ArtistCard = ({ artist }: ArtistCardProps) => {
                 <CardContent>
                     <div className="flex flex-wrap gap-2">
                         {artist.genre.map((g) => (
-                            <span key={g} className="text-xs bg-primary text-white px-2 py-1">
+                            <span key={g} className="text-xs bg-secondary text-gray-500 px-2 py-1">
                                 {g.toUpperCase()}
                             </span>
                         ))}
