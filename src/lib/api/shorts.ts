@@ -1,4 +1,4 @@
-import { Short, ShortsQuery } from '@/types';
+import { Short, ShortsQuery, ShortsSort } from '@/types';
 import { fetchGraphQL } from './base';
 import { parseShort } from '../parsers';
 
@@ -39,7 +39,9 @@ function buildShortsFilter(query: ShortsQuery): string {
     // if (query.category) {
     //     filters.push(`category_contains_some: "${query.category}"`);
     // }
-    return `where: { ${filterString} }, skip: ${skip}, limit: ${limit}, order: ${query.sort ?? 'createdAt_DESC'}`;
+    return `where: { ${filterString} }, skip: ${skip}, limit: ${limit}, order: ${
+        query.sort ?? ShortsSort.CREATED_DESC
+    }`;
 }
 
 export const shortsApi = {

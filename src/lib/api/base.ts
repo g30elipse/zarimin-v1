@@ -1,5 +1,5 @@
 import { Artist, News, Chart, NewsSort, Spotlight } from '@/types';
-import { Short } from '@/types/shorts';
+import { Short, ShortsSort } from '@/types/shorts';
 import { artistsApi, chartsApi, newsApi, shortsApi, spotlightApi } from '.';
 
 export const getLatestNews = async (): Promise<News[]> => {
@@ -16,7 +16,7 @@ export const getLatestShorts = async (count: number): Promise<Short[]> => {
         page: 1,
         limit: count,
         query: '',
-        sort: 'createdAt_DESC',
+        sort: ShortsSort.CREATED_DESC,
     });
 };
 
