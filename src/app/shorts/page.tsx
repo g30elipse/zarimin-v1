@@ -3,6 +3,7 @@ import { ShortGrid } from '@/components/shorts/ShortGrid';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import { shortsApi } from '@/lib/api';
 import { OG_IMAGE_LOGO } from '@/lib/constants';
+import { ShortsSort } from '@/types';
 
 export const metadata: Metadata = {
     title: 'Shorts - ZARIMIN',
@@ -17,7 +18,7 @@ export default async function ShortsPage() {
         page: 1,
         limit: 24,
         query: '',
-        sort: 'createdAt_DESC',
+        sort: ShortsSort.CREATED_DESC,
     });
     return (
         <main className="min-h-screen p-4 md:p-8">
