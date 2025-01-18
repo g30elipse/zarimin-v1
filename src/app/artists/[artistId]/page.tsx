@@ -49,7 +49,7 @@ export default async function ArtistPage({ params }: ArtistPageProps) {
 
     return (
         <main className="min-h-screen p-4 md:p-8">
-            <article className="max-w-5xl px-4 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 py-8">
+            <article className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Hero Section */}
                 <div className="relative col-span-1 md:col-span-1  mb-8">
                     <img src={artist.image} alt={artist.name} className="w-full aspect-[3/4] object-cover" />

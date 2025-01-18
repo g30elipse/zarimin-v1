@@ -45,7 +45,7 @@ export default async function NewsPage(props: ServerPageProps<NewsSearchParams>)
     const subtitle = subtitleArray.join(' • ');
 
     return (
-        <main className="min-h-screen p-4 md:p-8">
+        <main className="min-h-screen py-4 mdy:p-8">
             <SectionWrapper>
                 {/* Header */}
 

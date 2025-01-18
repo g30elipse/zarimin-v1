@@ -17,7 +17,7 @@ export default async function ChartsPage() {
     const charts = await getAllCharts();
 
     return (
-        <main className="min-h-screen p-4 md:p-8">
+        <main className="min-h-screen py-4 md:py-8">
             <SectionWrapper>
                 <h1 className="text-4xl font-bold mb-8">Music Charts</h1>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

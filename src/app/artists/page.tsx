@@ -20,7 +20,7 @@ export default async function Page(props: ServerPageProps<ArtistsSearchParams>) 
     const spotlights = await getLatestSpotlights();
 
     return (
-        <main className="min-h-screen p-4 md:p-8">
+        <main className="min-h-screen py-4 md:py-8">
             <SectionWrapper>
                 <div className="flex flex-col gap-8 md:gap-16 pb-32">
                     <div className="mb-8 md:mb-16 lg:mb-32">

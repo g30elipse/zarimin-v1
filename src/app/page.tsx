@@ -28,16 +28,10 @@ export default async function Home() {
 
     return (
         <main className="min-h-screen  lg:space-y-44 space-y-24 pb-32 md:pb-32">
-            <div className="px-4 md:px-8">
-                <LatestShorts shorts={shorts} />
-            </div>
-            <div className="px-4 md:px-8">
-                <LatestNews news={news} />
-            </div>
+            <LatestShorts shorts={shorts} />
+            <LatestNews news={news} />
             <TrendingCharts charts={charts} />
-            <div className="px-4 md:px-8">
-                <ArtistSpotlights spotlights={spotlightArtists} />
-            </div>
+            <ArtistSpotlights spotlights={spotlightArtists} />
         </main>
     );
 }

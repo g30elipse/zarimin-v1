@@ -14,7 +14,6 @@ const SHORT_GRAPHQL_FIELDS = `
     publishedAt
   }
   author
-  createdAt
   slug
   contentfulMetadata {
         tags {
