@@ -19,8 +19,8 @@ const SpotlightCard: FC<SpotlightCardProps> = (props) => {
                     alt={spotlight.title}
                     className="object-cover rounded-lg col-span-2 aspect-square"
                 />
-                <p className="w-full  flex items-center justify-center py-1  bg-primary text-white tracking-widest">
-                    SPOTLIGHT
+                <p className="w-full font-thin flex items-center justify-center py-1  bg-primary text-white tracking-wider uppercase">
+                    {artist.name}
                 </p>
                 <div className="w-full flex flex-col justify-between h-full flex-1">
                     <CardHeader>
