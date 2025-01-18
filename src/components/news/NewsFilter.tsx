@@ -54,7 +54,7 @@ export function NewsFilters({ categories, authors }: NewsFiltersProps) {
     };
 
     return (
-        <div className="space-y-6 p-6 bg-secondary/50 border border-accent">
+        <div className="space-y-6 hidden lg:block p-6 bg-secondary/50 border border-accent">
             {/* Categories */}
             <div>
                 <h3 className="text-lg font-semibold mb-3">Categories</h3>
