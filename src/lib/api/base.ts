@@ -61,3 +61,7 @@ export async function fetchGraphQL(query: string, preview = false): Promise<any>
         },
     }).then((response) => response.json());
 }
+
+export function appendTagSearchFilter(searchStr: string) {
+    return `{ contentfulMetadata: { tags_exists: true, tags: { id_contains_some: ["${searchStr}"] } } }`;
+}

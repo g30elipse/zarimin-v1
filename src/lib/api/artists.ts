@@ -1,5 +1,5 @@
 import { Artist, ArtistsFilters, ArtistsSort } from '@/types';
-import { fetchGraphQL } from '.';
+import { appendTagSearchFilter, fetchGraphQL } from '.';
 import { parseArtist } from '../parsers';
 
 const ARTIST_GRAPHQL_FIELDS = `
@@ -39,6 +39,7 @@ function buildArtistsFilter(_query: ArtistsFilters): string {
     if (query.search) {
         filterString = `OR: [ 
             { name_contains: "${query.search}" }, 
+            ${appendTagSearchFilter(query.search)}
         ]`;
     }
     return `where: { ${filterString} }, skip: ${skip}, limit: ${limit}, order: ${query.sort ?? ArtistsSort.TITLE_ASC}`;
