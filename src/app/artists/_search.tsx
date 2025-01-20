@@ -34,7 +34,7 @@ function ArtistsSearch() {
             <FabSearch {...props} />
 
             {/* For md & above devices */}
-            <SearchBar {...props} />
+            <SearchBar {...props} className="w-1/2" />
         </>
     );
 }

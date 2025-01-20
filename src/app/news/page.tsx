@@ -68,7 +68,7 @@ export default async function NewsPage(props: ServerPageProps<NewsSearchParams>)
                     {/* News Grid */}
                     <div className="lg:col-span-3 space-y-8 pb-24">
                         {/* Search Bar */}
-                        <div className="md:sticky md:top-24 z-10">
+                        <div className="md:sticky md:top-24 z-10 flex justify-end">
                             <NewsSearch />
                         </div>
 

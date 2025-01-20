@@ -15,10 +15,6 @@ function NewsSearch() {
         setSearchText(search);
     }, [search]);
 
-    const handleSearchTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchText(e.target.value);
-    };
-
     const updateUrl = (search: string) => {
         const url = new URL(window.location.href);
         url.searchParams.set('search', search);

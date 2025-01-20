@@ -31,7 +31,7 @@ const FabSearch: FC<FabSearchProps> = (props) => {
     };
 
     return (
-        <div className="bg-white rounded-full flex items-center justify-center  md:hidden fixed bottom-28 right-4 z-10 shadow-md">
+        <div className="bg-white rounded-full flex items-center justify-center  md:hidden fixed bottom-20 right-4 z-10 shadow-md">
             <input
                 type="text"
                 value={value}

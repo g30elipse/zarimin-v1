@@ -3,15 +3,17 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useCallback, useState } from 'react';
 import { useDebounce } from '@/hooks/useDebounce';
+import { cn } from '@/lib/utils';
 
 interface SearchBarProps {
     onSubmit: (value: string) => void;
     value: string;
     onChange: (value: string) => void;
     placeholder?: string;
+    className?: string;
 }
 export function SearchBar(props: SearchBarProps) {
-    const { onSubmit, value, onChange, placeholder = 'Search...' } = props;
+    const { onSubmit, value, onChange, placeholder = 'Search...', className } = props;
 
     const handleSubmit = useCallback(
         (e: React.FormEvent<HTMLFormElement>) => {
@@ -22,7 +24,10 @@ export function SearchBar(props: SearchBarProps) {
     );
 
     return (
-        <form className="hidden md:block relative  bg-white z-10 md:shadow-md w-full md:w-1/3" onSubmit={handleSubmit}>
+        <form
+            className={cn('hidden md:block relative  bg-white z-10 md:shadow-md w-full', className)}
+            onSubmit={handleSubmit}
+        >
             <input
                 type="text"
                 placeholder={placeholder}

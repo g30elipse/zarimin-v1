@@ -17,9 +17,9 @@ export const NavLink = ({ href, children }: NavLinkProps) => {
         <Link
             href={href}
             className={cn(
-                'relative px-3 py-4 md:py-2 text-gray-600 transition-colors hover:text-primary visited:text-gray-600',
+                'relative px-3 nav-link py-4 md:py-2 text-gray-600 transition-colors hover:text-primary visited:text-gray-600',
                 isActive &&
-                    'text-primary font-medium after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-primary'
+                    'text-primary active font-medium after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-primary '
             )}
         >
             {children}

@@ -98,3 +98,7 @@
         background-color: theme(colors.secondary.DEFAULT);
     }
 }
+
+.nav-link.active svg {
+    stroke: hsl(var(--primary));
+}
