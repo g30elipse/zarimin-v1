@@ -4,47 +4,39 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useCallback, useState } from 'react';
 import { useDebounce } from '@/hooks/useDebounce';
 
-export function SearchBar() {
-    const router = useRouter();
-    const searchParams = useSearchParams();
-    const initialSearch = searchParams.get('search') || '';
-    const [search, setSearch] = useState(initialSearch);
+interface SearchBarProps {
+    onSubmit: (value: string) => void;
+    value: string;
+    onChange: (value: string) => void;
+    placeholder?: string;
+}
+export function SearchBar(props: SearchBarProps) {
+    const { onSubmit, value, onChange, placeholder = 'Search...' } = props;
 
-    const createQueryString = useCallback(
-        (name: string, value: string | null) => {
-            const params = new URLSearchParams(searchParams.toString());
-            if (value === null || value === '') {
-                params.delete(name);
-            } else {
-                params.set(name, value);
-            }
-            return params.toString();
+    const handleSubmit = useCallback(
+        (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            onSubmit(value);
         },
-        [searchParams]
-    );
-
-    // Debounce the search to avoid too many URL updates
-    useDebounce(
-        () => {
-            if (search !== initialSearch) {
-                const newQueryString = createQueryString('search', search || null);
-                router.push(`?${newQueryString}`);
-            }
-        },
-        500,
-        [search]
+        [onSubmit, value]
     );
 
     return (
-        <div className="relative">
+        <form className="hidden md:block relative  bg-white z-10 md:shadow-md w-full md:w-1/3" onSubmit={handleSubmit}>
             <input
                 type="text"
-                placeholder="Search articles..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full px-4 py-2 border-2 border-accent bg-background 
-                          focus:border-primary outline-none transition-colors"
+                placeholder={placeholder}
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+                className="w-full px-4 py-2 border border-accent bg-background 
+                focus:border-primary outline-none transition-colors"
             />
-        </div>
+            <button
+                type="submit"
+                className="absolute inset-y-0 right-0 px-4 py-2 bg-primary text-primary-foreground shadow-md hover:bg-secondary-foreground transition-colors"
+            >
+                Search
+            </button>
+        </form>
     );
 }
