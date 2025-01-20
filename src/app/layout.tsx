@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ThemeProvider } from '@/components/ui/ThemeProvider';
 import { Header } from '@/components/layout/Header';
 import { Crimson_Text } from 'next/font/google';
+import { BottomNav } from '@/components/layout/BottomNav';
 import './globals.css';
 
 // Initialize Crimson Text font
@@ -24,9 +25,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${crimsonText.variable} font-sans`}>
-                <Header />
-                <ThemeProvider>{children}</ThemeProvider>
+            <body className={`${crimsonText.variable} font-sans pb-32 md:pb-0`}>
+                <ThemeProvider>
+                    <Header />
+                    {children}
+                    <BottomNav />
+                </ThemeProvider>
             </body>
         </html>
     );
