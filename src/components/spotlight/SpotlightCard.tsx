@@ -27,7 +27,7 @@ const SpotlightCard: FC<SpotlightCardProps> = (props) => {
                         <CardTitle className="text-md text-gray-500">{spotlight.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="flex-1 justify-end items-center flex gap-2 col-span-3 text-xs text-gray-500">
-                        <img src={artist.image} alt={artist.name} className="w-12 h-12 rounded-full" />
+                        <img src={artist.image} alt={artist.name} className="w-12 h-12 rounded-full object-cover" />
                         <div className="flex flex-col">
                             <h5 className="">{artist.name}</h5>
                             <div className="text-xs">{artist.genre.slice(0, 2).join(', ')}</div>
