@@ -9,6 +9,6 @@ export function parseArtist(artist: ArtistsResponse): Artist {
         bio: artist.about.json,
         genre: artist.contentfulMetadata.tags.map((tag) => tag.name),
         slug: artist.slug,
-        socialLinks: artist.socialLinks,
+        socialLinks: artist.socialLinks || [],
     };
 }

@@ -51,6 +51,7 @@ async function searchArtists(params: ArtistsSearchParams) {
 
     return artistsApi.searchArtists({
         page,
+        perPage: 30,
         search: params.search,
         sort: params.sort,
         category,
