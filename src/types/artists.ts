@@ -1,5 +1,6 @@
 import { BaseQuery, ContentfulResponse, Image } from '.';
 
+export const ARTISTS_PER_PAGE = 12;
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ArtistsQuery extends BaseQuery {}
 
