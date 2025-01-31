@@ -25,7 +25,7 @@ export function SearchBar(props: SearchBarProps) {
 
     return (
         <form
-            className={cn('hidden md:block relative  bg-white z-1 md:shadow-md w-full', className)}
+            className={cn('hidden md:block relative  bg-white z-1 md:shadow-md w-full md:w-1/2', className)}
             onSubmit={handleSubmit}
         >
             <input

@@ -14,7 +14,7 @@ const FONT_SIZE_MAP = {
 
 export function ShortCard({ content, className, variant = 'default' }: ShortCardProps) {
     return (
-        <div className={twMerge('relative aspect-[3/4] group cursor-pointer overflow-hidden', className)}>
+        <div className={twMerge('relative aspect-shorts group cursor-pointer overflow-hidden', className)}>
             {/* Image */}
             <img
                 src={content.image}

@@ -18,6 +18,18 @@ module.exports = {
                 // serif: ['var(--font-fjalla-one)'],
                 // serif: ['var(--font-playfair)'],
             },
+            aspectRatio: {
+                /**
+                 *   Artists = 4:5
+                 *   Shorts = 9:16
+                 *   News = 16:9
+                 *   Profile = 1:1
+                 */
+                artists: '4/5',
+                shorts: '3/4',
+                news: '16/9',
+                profile: '1/1',
+            },
             colors: {
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',

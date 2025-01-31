@@ -11,7 +11,7 @@ export const ArtistCard = ({ artist }: ArtistCardProps) => {
         <Link href={`/artists/${artist.id}`} className="block hover:-translate-y-2 transition-transform">
             <Card className="overflow-hidden h-full">
                 <div className="relative">
-                    <img src={artist.image} alt={artist.name} className="w-full aspect-[3/4] object-cover" />
+                    <img src={artist.image} alt={artist.name} className="w-full aspect-artists object-cover" />
                 </div>
                 <CardHeader>
                     <h3 className="text-lg font-semibold">{artist.name}</h3>
