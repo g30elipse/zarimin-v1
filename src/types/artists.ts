@@ -1,6 +1,5 @@
 import { BaseQuery, ContentfulResponse, Image } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ArtistsQuery extends BaseQuery {}
 
 export enum ArtistsSort {
