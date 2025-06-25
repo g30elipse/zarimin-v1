@@ -47,10 +47,10 @@ export const getSocialLinkMeta = (socialLink: string) => {
     if (socialLink.includes('instagram')) {
         return SOCIAL_LINK_META.instagram;
     }
-    if (socialLink.includes('spotify')) {
+    if (socialLink.includes('spotify') || socialLink.includes('open.spotify.com')) {
         return SOCIAL_LINK_META.spotify;
     }
-    if (socialLink.includes('youtube')) {
+    if (socialLink.includes('youtube') || socialLink.includes('youtu.be')) {
         return SOCIAL_LINK_META.youtube;
     }
     return SOCIAL_LINK_META.default;
