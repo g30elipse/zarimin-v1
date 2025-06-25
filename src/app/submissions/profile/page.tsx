@@ -29,7 +29,6 @@ const FIELDS = [
     label: 'Gender',
     name: 'gender',
     type: 'select',
-    required: true,
     options: [
       { label: 'Male', value: 'male' },
       { label: 'Female', value: 'female' },
@@ -42,6 +41,13 @@ const FIELDS = [
     name: 'genre',
     type: 'text',
     required: true,
+  },
+  {
+    label: 'Social Links',
+    hint: 'Please enter your social links',
+    name: 'social_links',
+    type: 'textarea',
+    rows: 4,
   },
   {
     label: 'Bio',
@@ -69,8 +75,8 @@ const Page: FC<PageProps> = (props) => {
         >
 
           {FIELDS.map((field) => (
-            <label className="block">
-              <span className="text-gray-700">{field.label}
+            <label key={field.name} className="block">
+              <span className="text-gray-700">{field.label} {field.required && <span className="text-red-500">*</span>}
                 <br />
                 {field.hint && <span className="text-gray-500 text-sm">{field.hint}</span>}</span>
               {field.type === 'text' && (
@@ -111,7 +117,7 @@ const Page: FC<PageProps> = (props) => {
               {field.type === 'textarea' && (
                 <textarea
                   required={field.required}
-                  rows={10}
+                  rows={field.rows || 10}
                   name={field.name}
                   className={inputClass}
                 />
