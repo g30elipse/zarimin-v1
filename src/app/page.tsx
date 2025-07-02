@@ -9,7 +9,8 @@ import { getHomePageCharts, newsApi } from '@/lib/api';
 import { Metadata } from 'next';
 import { OG_IMAGE_LOGO } from '@/lib/constants';
 import Hero from '@/components/sections/Hero';
-
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 
 export const metadata: Metadata = {
@@ -22,23 +23,24 @@ export const metadata: Metadata = {
     keywords: ['ZARIMIN', 'Dakhwr', 'Mukut', 'Hironya', 'Bodo music', 'music magazine team'],
 };
 
+
 export default async function Home() {
 
-    // const [news, charts, spotlightArtists, shorts] = await Promise.all([
-    //     getAllNews(),
-    //     getHomePageCharts(),
-    //     getArtistSpotlight(),
-    //     getLatestShorts(5),
-    // ]);
+    const [news, charts, spotlightArtists, shorts] = await Promise.all([
+        getAllNews(),
+        getHomePageCharts(),
+        getArtistSpotlight(),
+        getLatestShorts(5),
+    ]);
 
     return (
 
         <main className="min-h-screen h-[2000px]  lg:space-y-44 space-y-24 pb-32 md:pb-32">
             <Hero />
-            {/* <LatestShorts shorts={shorts} />
+            <LatestShorts shorts={shorts} />
             <LatestNews news={news} />
             <TrendingCharts charts={charts} />
-            <ArtistSpotlights spotlights={spotlightArtists} /> */}
+            <ArtistSpotlights spotlights={spotlightArtists} />
         </main>
     );
 }

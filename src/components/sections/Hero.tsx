@@ -1,13 +1,13 @@
 'use client'
-import Lenis from 'lenis';
+
 import { FC, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { useLenis } from 'lenis/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export interface HeroProps {
 
 }
+
 
 gsap.registerPlugin(ScrollTrigger);
 
