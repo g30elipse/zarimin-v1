@@ -1,15 +1,17 @@
 import { News } from '@/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
+import { twMerge } from 'tailwind-merge';
 
 interface NewsCardProps {
     news: News;
+    className?: string;
 }
 
-export const NewsCard = ({ news }: NewsCardProps) => {
+export const NewsCard = ({ news, className }: NewsCardProps) => {
     return (
         <Link href={`/news/${news.id}`} className="block">
-            <Card className="overflow-hidden grid grid-cols-3">
+            <Card className={twMerge("overflow-hidden grid grid-cols-3", className)}>
                 {/* <Card  className="overflow-hidden h-full flex flex-col"> */}
 
                 <div className="h-full justify-between flex flex-col col-span-3 md:col-span-2">
