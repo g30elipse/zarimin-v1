@@ -7,6 +7,7 @@ import { NewsSort } from '@/types';
 import { getHomePageCharts, newsApi } from '@/lib/api';
 import { Metadata } from 'next';
 import { OG_IMAGE_LOGO } from '@/lib/constants';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
     title: 'ZARIMIN',
@@ -28,6 +29,22 @@ export default async function Home() {
 
     return (
         <main className="min-h-screen  lg:space-y-44 space-y-24 pb-32 md:pb-32">
+            <div className="relative" style={{
+                backgroundImage: 'url(/hero.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundAttachment: 'fixed',
+                height: '80vh',
+                width: '100%',
+            }}>
+                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 px-8 flex items-center justify-center">
+                    <h1 className="lg:text-5xl text-3xl font-sans tracking-widest uppercase text-white text-center">
+                        Preserving Culture
+                    </h1>
+                </div>
+            </div>
             <LatestShorts shorts={shorts} />
             <LatestNews news={news} />
             <TrendingCharts charts={charts} />

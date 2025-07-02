@@ -37,6 +37,8 @@ const SOCIAL_LINK_META = {
         label: 'Link',
     },
 };
+
+
 export const getSocialLinkMeta = (socialLink: string) => {
     if (socialLink.includes('facebook')) {
         return SOCIAL_LINK_META.facebook;
