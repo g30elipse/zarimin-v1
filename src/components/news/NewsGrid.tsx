@@ -24,7 +24,8 @@ export const NewsGrid = ({ news }: NewsGridProps) => {
 
         gsap.fromTo(cards, {
             opacity: 0,
-            y: 70,
+            y: 60,
+            x: 20,
             stagger: 0.15,
             duration: 0.8,
             ease: 'power3.out',
@@ -36,6 +37,7 @@ export const NewsGrid = ({ news }: NewsGridProps) => {
         }, {
             opacity: 1,
             y: 0,
+            x: 0,
             stagger: 0.15,
             duration: 0.8,
             ease: 'power3.out',
