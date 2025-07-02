@@ -38,10 +38,10 @@ export default async function Home() {
                 height: '80vh',
                 width: '100%',
             }}>
-                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 bg-black/60" />
                 <div className="absolute inset-0 px-8 flex items-center justify-center">
-                    <h1 className="lg:text-5xl text-3xl font-sans tracking-widest uppercase text-white text-center">
-                        Preserving Culture
+                    <h1 className="lg:text-8xl text-3xl font-dancing tracking-wide text-white text-center">
+                        Preserving <span className="text-orange-400">Culture</span>
                     </h1>
                 </div>
             </div>

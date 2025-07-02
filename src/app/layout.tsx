@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@/components/ui/ThemeProvider';
 import { Header } from '@/components/layout/Header';
-import { Crimson_Text } from 'next/font/google';
+import { Crimson_Text, Dancing_Script, Italianno } from 'next/font/google';
 import { BottomNav } from '@/components/layout/BottomNav';
 import './globals.css';
 
@@ -11,6 +11,13 @@ const crimsonText = Crimson_Text({
     display: 'swap',
     variable: '--font-crimson-text',
     weight: ['400', '600'],
+});
+
+const dancingScript = Italianno({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-dancing-script',
+    weight: ['400'],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +32,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${crimsonText.variable} font-sans pb-32 md:pb-0`}>
+            <body className={`${crimsonText.variable} ${dancingScript.variable} font-sans pb-32 md:pb-0`}>
                 <ThemeProvider>
                     <Header />
                     {children}

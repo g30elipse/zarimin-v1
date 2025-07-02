@@ -15,6 +15,7 @@ module.exports = {
                 // sans: ['var(--font-poppins)'],
                 sans: ['var(--font-crimson-text)'],
                 serif: ['var(--font-crimson-text)'],
+                dancing: ['var(--font-dancing-script)'],
                 // serif: ['var(--font-fjalla-one)'],
                 // serif: ['var(--font-playfair)'],
             },
