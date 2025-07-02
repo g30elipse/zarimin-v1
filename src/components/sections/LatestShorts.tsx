@@ -17,6 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function LatestShorts({ shorts }: LatestShortsProps) {
 
     const sectionRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLAnchorElement>(null);
 
     useEffect(() => {
         if (!sectionRef.current) return;
@@ -49,12 +50,42 @@ export function LatestShorts({ shorts }: LatestShortsProps) {
             },
         });
 
+        // Animate button on scroll
+        if (buttonRef.current) {
+            gsap.fromTo(
+                buttonRef.current,
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: buttonRef.current,
+                        start: 'top 90%',
+                        toggleActions: 'play none none reverse',
+                    },
+                }
+            );
+        }
 
         // Optional: Clean up
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
     }, [shorts]);
+
+    // GSAP hover animation handlers
+    const handleButtonMouseEnter = () => {
+        if (buttonRef.current) {
+            gsap.to(buttonRef.current, { scale: 1.08, boxShadow: '0 4px 24px rgba(0,0,0,0.10)', duration: 0.25, ease: 'power2.out' });
+        }
+    };
+    const handleButtonMouseLeave = () => {
+        if (buttonRef.current) {
+            gsap.to(buttonRef.current, { scale: 1, boxShadow: '0 0px 0px rgba(0,0,0,0)', duration: 0.25, ease: 'power2.in' });
+        }
+    };
 
     return (
         <SectionWrapper >
@@ -71,8 +102,11 @@ export function LatestShorts({ shorts }: LatestShortsProps) {
 
             <div className="flex justify-center">
                 <Link
+                    ref={buttonRef}
                     href="/shorts"
                     className="text-sm px-4 py-2 border-2 border-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                    onMouseEnter={handleButtonMouseEnter}
+                    onMouseLeave={handleButtonMouseLeave}
                 >
                     Check Out More
                 </Link>
