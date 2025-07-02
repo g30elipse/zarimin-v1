@@ -22,8 +22,15 @@ export default async function TeamPage(props: ServerPageProps<TeamMembersSearchP
     return (
         <main className="min-h-screen">
             {/* Hero Section */}
-            <div className="relative h-72 grid-pattern">
-                <div className="absolute inset-0 bg-accent/60" />
+            <div className="relative h-72">
+                <div className="absolute inset-0" style={{
+                    backgroundImage: 'url(/banner1.jpg)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundAttachment: 'fixed',
+                    backgroundRepeat: 'no-repeat',
+                }} />
+                <div className="absolute inset-0 bg-black/60" />
                 <div className="relative max-w-7xl mx-auto px-4 h-full flex flex-col justify-center">
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Team</h1>
                     <p className="text-lg text-white/90 max-w-2xl">Meet the passionate individuals behind ZARIMIN</p>

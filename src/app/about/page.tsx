@@ -18,8 +18,19 @@ export default function AboutPage() {
     return (
         <main className="min-h-screen">
             {/* Hero Section */}
-            <div className="relative h-72 grid-pattern">
-                <div className="absolute inset-0 bg-accent/60" />
+            {/* <div className="relative h-72 grid-pattern"> */}
+            <div className="relative h-72">
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        backgroundImage: 'url(/banner.jpg)',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundAttachment: 'fixed',
+                    }}
+                />
+                <div className="absolute inset-0 bg-black/60" />
                 <div className="relative max-w-7xl mx-auto px-4 h-full flex flex-col justify-center">
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">About ZARIMIN</h1>
                     <p className="text-lg text-white/90 max-w-2xl">Celebrating the Rich Heritage of Bodo Music</p>
