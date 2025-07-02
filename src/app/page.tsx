@@ -1,3 +1,4 @@
+
 import { getArtistSpotlight, getLatestShorts } from '@/lib/api/base';
 import { LatestNews } from '@/components/sections/LatestNews';
 import { TrendingCharts } from '@/components/sections/TrendingCharts';
@@ -7,7 +8,9 @@ import { NewsSort } from '@/types';
 import { getHomePageCharts, newsApi } from '@/lib/api';
 import { Metadata } from 'next';
 import { OG_IMAGE_LOGO } from '@/lib/constants';
-import Image from 'next/image';
+import gsap from 'gsap'
+
+
 
 export const metadata: Metadata = {
     title: 'ZARIMIN',
@@ -28,6 +31,7 @@ export default async function Home() {
     ]);
 
     return (
+
         <main className="min-h-screen  lg:space-y-44 space-y-24 pb-32 md:pb-32">
             <div className="relative" style={{
                 backgroundImage: 'url(/hero.jpg)',

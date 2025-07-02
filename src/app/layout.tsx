@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/Header';
 import { Crimson_Text, Dancing_Script, Italianno } from 'next/font/google';
 import { BottomNav } from '@/components/layout/BottomNav';
 import './globals.css';
+import { LenisProvider } from '@/components/layout/LenisProvider';
 
 // Initialize Crimson Text font
 const crimsonText = Crimson_Text({
@@ -34,9 +35,11 @@ export default function RootLayout({
         <html lang="en">
             <body className={`${crimsonText.variable} ${dancingScript.variable} font-sans pb-32 md:pb-0`}>
                 <ThemeProvider>
-                    <Header />
-                    {children}
-                    <BottomNav />
+                    <LenisProvider>
+                        <Header />
+                        {children}
+                        <BottomNav />
+                    </LenisProvider>
                 </ThemeProvider>
             </body>
         </html>
