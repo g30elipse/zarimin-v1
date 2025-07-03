@@ -48,9 +48,7 @@ const ArtistSpotlight: FC<ArtistSpotlightProps> = (props) => {
     return (
         <div ref={sectionRef} className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 md:px-24">
             {spotlights.map((spotlight) => (
-                <div className="spotlight-card" key={spotlight.id}>
-                    <SpotlightCard spotlight={spotlight} />
-                </div>
+                <SpotlightCard key={spotlight.id} spotlight={spotlight} />
             ))}
         </div>
     );

@@ -12,7 +12,7 @@ const SpotlightCard: FC<SpotlightCardProps> = (props) => {
     const artist = spotlight.artist;
 
     return (
-        <Link href={`/artists/${artist.id}`} className="block">
+        <Link href={`/artists/${artist.id}`} className="block spotlight-card">
             <Card className="overflow-hidden h-full hover:shadow-lg flex flex-col relative">
                 <img
                     src={spotlight.image}
