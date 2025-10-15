@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { NavLink } from './NavLink';
 import Image from 'next/image';
-import { BookImage, Home, Newspaper, TrendingUp, Users } from 'lucide-react';
+import { BookImage, Home, Newspaper, TrendingUp, Users, Calendar } from 'lucide-react';
 
 export const BottomNav = () => {
     return (
@@ -14,8 +14,8 @@ export const BottomNav = () => {
                 <NavLink href="/news">
                     <Newspaper />
                 </NavLink>
-                <NavLink href="/shorts">
-                    <BookImage />
+                <NavLink href="/events">
+                    <Calendar />
                 </NavLink>
                 <NavLink href="/">
                     <Home />

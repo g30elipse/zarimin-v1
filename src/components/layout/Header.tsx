@@ -16,6 +16,7 @@ export const Header = () => {
                         {/* <div className="flex flex-wrap justify-center gap-4"> */}
                         <NavLink href="/news">News</NavLink>
                         <NavLink href="/artists">Artists</NavLink>
+                        <NavLink href="/events">Events</NavLink>
                         <NavLink href="/charts">Charts</NavLink>
                         <Link
                             href="/"

@@ -3,8 +3,9 @@ import { LatestNews } from '@/components/sections/LatestNews';
 import { TrendingCharts } from '@/components/sections/TrendingCharts';
 import { ArtistSpotlights } from '@/components/sections/ArtistSpotlight';
 import { LatestShorts } from '@/components/sections/LatestShorts';
+import { UpcomingEvents } from '@/components/sections/UpcomingEvents';
 import { NewsSort } from '@/types';
-import { getHomePageCharts, newsApi } from '@/lib/api';
+import { getHomePageCharts, newsApi, eventsApi } from '@/lib/api';
 import { Metadata } from 'next';
 import { OG_IMAGE_LOGO } from '@/lib/constants';
 import Image from 'next/image';
@@ -20,11 +21,12 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-    const [news, charts, spotlightArtists, shorts] = await Promise.all([
+    const [news, charts, spotlightArtists, shorts, upcomingEvents] = await Promise.all([
         getAllNews(),
         getHomePageCharts(),
         getArtistSpotlight(),
         getLatestShorts(5),
+        eventsApi.getUpcomingEvents(4),
     ]);
 
     return (
@@ -46,6 +48,7 @@ export default async function Home() {
                 </div>
             </div>
             <LatestShorts shorts={shorts} />
+            <UpcomingEvents events={upcomingEvents} />
             <LatestNews news={news} />
             <TrendingCharts charts={charts} />
             <ArtistSpotlights spotlights={spotlightArtists} />
