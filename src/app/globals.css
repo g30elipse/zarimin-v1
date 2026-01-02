@@ -1,3 +1,6 @@
+/* Custom Typography */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Inter:wght@400;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,18 +26,24 @@
         /* --primary: 16 94% 57%; #F96E2A */
         /* --primary-foreground: 48 67% 96%; #FBF8EF */
 
-        --secondary: 196 52% 87%; /* #C9E6F0 */
-        --secondary-foreground: 203 35% 64%; /* #78B3CE */
+        --secondary: 196 52% 87%;
+        /* #C9E6F0 */
+        --secondary-foreground: 203 35% 64%;
+        /* #78B3CE */
 
-        --accent: 203 35% 64%; /* #78B3CE */
+        --accent: 203 35% 64%;
+        /* #78B3CE */
         /* --accent-foreground: 48 67% 96%; #FBF8EF */
 
-        --border: 203 35% 64%; /* #78B3CE */
-        --input: 203 35% 64%; /* #78B3CE */
+        --border: 203 35% 64%;
+        /* #78B3CE */
+        --input: 203 35% 64%;
+        /* #78B3CE */
 
         /* --ring: 16 94% 57%; #F96E2A */
 
-        --radius: 0px; /* This ensures boxy corners */
+        --radius: 0px;
+        /* This ensures boxy corners */
     }
 
     h1,
@@ -55,50 +64,60 @@
     * {
         @apply border-border;
     }
+
     body {
         @apply text-foreground;
         /* @apply bg-background text-foreground; */
         background: #ece9e6;
         background: -webkit-linear-gradient(to right, #ffffff, #ece9e6);
-        background: linear-gradient(
-            to right,
-            #ffffff,
-            #ece9e6
-        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    }
-}
-
-/* Custom utilities for boxy design */
-@layer components {
-    .boxy-card {
-        @apply bg-card border border-accent shadow-none 
-        hover:shadow-md transition-shadow duration-200;
-    }
-
-    .rounded-card {
-        @apply bg-card border border-accent shadow-md
-        hover:shadow-lg transition-shadow duration-200;
-    }
-
-    .boxy-button {
-        @apply px-4 py-2 border border-primary bg-primary text-primary-foreground 
-        hover:bg-accent hover:border-accent hover:text-accent-foreground 
-        transition-colors duration-200;
-    }
-
-    .boxy-input {
-        @apply px-4 py-2 border border-input bg-background focus:border-primary 
-        outline-none transition-colors duration-200;
-    }
-
-    .grid-pattern {
-        background-size: 20px 20px;
-        background-image: linear-gradient(to right, theme(colors.accent.DEFAULT) 1px, transparent 1px),
-            linear-gradient(to bottom, theme(colors.accent.DEFAULT) 1px, transparent 1px);
-        background-color: theme(colors.secondary.DEFAULT);
+        background: linear-gradient(to right,
+                #ffffff,
+                #ece9e6);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
 }
 
 .nav-link.active svg {
     stroke: hsl(var(--primary));
+}
+
+
+
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+/* Magazine Drop Cap */
+.editorial-text::first-letter {
+    float: left;
+    font-size: 5rem;
+    line-height: 1;
+    font-weight: 900;
+    margin-right: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Image Grain Effect */
+.magazine-image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.15;
+    pointer-events: none;
 }

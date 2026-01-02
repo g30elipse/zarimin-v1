@@ -1,66 +1,122 @@
-import { getArtistSpotlight, getLatestShorts } from '@/lib/api/base';
-import { LatestNews } from '@/components/sections/LatestNews';
-import { TrendingCharts } from '@/components/sections/TrendingCharts';
-import { ArtistSpotlights } from '@/components/sections/ArtistSpotlight';
-import { LatestShorts } from '@/components/sections/LatestShorts';
-import { UpcomingEvents } from '@/components/sections/UpcomingEvents';
-import { NewsSort } from '@/types';
-import { getHomePageCharts, newsApi, eventsApi } from '@/lib/api';
-import { Metadata } from 'next';
-import { OG_IMAGE_LOGO } from '@/lib/constants';
-import Image from 'next/image';
+"use client";
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from '@studio-freight/lenis';
+import Timeline from '@/components/Timeline';
 
-export const metadata: Metadata = {
-    title: 'ZARIMIN',
-    openGraph: {
-        images: [OG_IMAGE_LOGO],
-    },
-    description:
-        'ZARIMIN is a music magazine dedicated to promoting and preserving Bodo music culture while connecting it with the global music community.',
-    keywords: ['ZARIMIN', 'Dakhwr', 'Mukut', 'Hironya', 'Bodo music', 'music magazine team'],
-};
+gsap.registerPlugin(ScrollTrigger);
 
-export default async function Home() {
-    const [news, charts, spotlightArtists, shorts, upcomingEvents] = await Promise.all([
-        getAllNews(),
-        getHomePageCharts(),
-        getArtistSpotlight(),
-        getLatestShorts(5),
-        eventsApi.getUpcomingEvents(4),
-    ]);
+export default function ZariminMagazine() {
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        const lenis = new Lenis({ duration: 1.2, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+        function raf(time: number) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        const ctx = gsap.context(() => {
+            // Hero Parallax
+            gsap.to(".hero-img", {
+                yPercent: 20,
+                ease: "none",
+                scrollTrigger: { trigger: ".hero-section", scrub: true }
+            });
+
+            // Gallery Reveal
+            gsap.utils.toArray('.gallery-item').forEach((item: any) => {
+                gsap.from(item, {
+                    opacity: 0,
+                    y: 100,
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top 90%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+        }, containerRef);
+
+        return () => { lenis.destroy(); ctx.revert(); };
+    }, []);
 
     return (
-        <main className="min-h-screen  lg:space-y-44 space-y-24 pb-32 md:pb-32">
-            <div className="relative" style={{
-                backgroundImage: 'url(/hero.jpg)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                backgroundAttachment: 'fixed',
-                height: '80vh',
-                width: '100%',
-            }}>
-                <div className="absolute inset-0 bg-black/60" />
-                <div className="absolute inset-0 px-8 flex items-center justify-center">
-                    <h1 className="lg:text-8xl text-3xl font-dancing tracking-wide text-white text-center">
-                        Preserving <span className="text-orange-400">Culture</span>
-                    </h1>
-                </div>
+        <main ref={containerRef} className="bg-[#ecebe9] text-[#1a1a1a]">
+            {/* Sidebar Masthead - Magazine Style */}
+            <div className="fixed left-0 top-0 h-screen w-16 border-r border-black/10 z-50 hidden md:flex items-center justify-center">
+                <span className="rotate-90 origin-center whitespace-nowrap uppercase tracking-[0.5em] text-[10px] font-bold">
+                    Issue No. 001 — Production House
+                </span>
             </div>
-            <LatestShorts shorts={shorts} />
-            <UpcomingEvents events={upcomingEvents} />
-            <LatestNews news={news} />
-            <TrendingCharts charts={charts} />
-            <ArtistSpotlights spotlights={spotlightArtists} />
+
+            {/* Hero Section */}
+            <section className="hero-section relative h-screen w-full flex flex-col items-center justify-center overflow-hidden px-6 md:px-24">
+                <nav className="absolute top-0 w-full flex justify-between p-10 uppercase text-[11px] tracking-widest font-bold">
+                    <span>Est. 2024</span>
+                    <span>Zarimin Studio</span>
+                    <div className="flex gap-6">
+                        <a href="#" className="hover:line-through">Archive</a>
+                        <a href="#" className="hover:line-through">Contact</a>
+                    </div>
+                </nav>
+
+                <div className="z-10 text-center">
+                    <h1 className="text-[18vw] font-black leading-[0.75] tracking-tighter uppercase mb-6">
+                        ZARIMIN
+                    </h1>
+                    <div className="flex justify-between items-start w-full uppercase text-[10px] font-medium tracking-widest border-t border-black pt-4">
+                        <span>Bodo Music Global</span>
+                        <span className="max-w-[200px] text-right">Documenting, Preserving, Promoting Culture</span>
+                    </div>
+                </div>
+
+                <div className="hero-img absolute inset-0 -z-10 opacity-30">
+                    <div className="w-full h-[120%] bg-[url('https://images.unsplash.com/photo-1514525253361-bee8a4874a73?auto=format&fit=crop&q=80')] bg-cover bg-center grayscale" />
+                </div>
+            </section>
+
+            {/* Editorial Content Section */}
+            <section className="py-32 px-6 md:ml-16 md:px-24 grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div className="md:col-span-4 gallery-item">
+                    <p className="text-sm border-b border-black pb-2 mb-6 font-bold uppercase tracking-tighter">The Vision</p>
+                    <p className="text-2xl leading-tight font-serif italic">
+                        "We strive to create a space where the vibrant Bodo music culture can thrive while embracing global diversity."
+                    </p>
+                </div>
+
+                <div className="md:col-span-7 md:col-start-6 gallery-item">
+                    <div className="aspect-[3/4] bg-neutral-300 overflow-hidden mb-8">
+                        <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?auto=format&fit=crop&q=80" className="w-full h-full object-cover grayscale contrast-125 hover:scale-105 transition-transform duration-700" alt="Cultural performance" />
+                    </div>
+                    <p className="text-lg leading-relaxed first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-3">
+                        Through our platform, we aim to document the unique sounds and stories of Bodo artists. Connecting them with music lovers worldwide is not just a goal; it's a movement to preserve the rhythm of the soil.
+                    </p>
+                </div>
+            </section>
+
+            {/* The Gallery - Magazine Layout */}
+            <section className="pb-32 px-6 md:ml-16 md:px-24">
+                <h2 className="text-xs font-bold uppercase tracking-widest mb-16 opacity-50">Selected Works</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 items-start">
+                    <div className="gallery-item space-y-4 pt-12">
+                        <div className="aspect-square bg-neutral-400" />
+                        <h3 className="font-serif italic text-xl">Rhythm of Udalguri</h3>
+                        <p className="text-[10px] uppercase tracking-widest opacity-60">Short Film / 2024</p>
+                    </div>
+                    <div className="gallery-item space-y-4">
+                        <div className="aspect-[4/5] bg-neutral-400" />
+                        <h3 className="font-serif italic text-xl">The Last Ballad</h3>
+                        <p className="text-[10px] uppercase tracking-widest opacity-60">Music Video / 2024</p>
+                    </div>
+                    <div className="gallery-item space-y-4 pt-24">
+                        <div className="aspect-square bg-neutral-400" />
+                        <h3 className="font-serif italic text-xl">Future Echoes</h3>
+                        <p className="text-[10px] uppercase tracking-widest opacity-60">Studio Album</p>
+                    </div>
+                </div>
+            </section>
+
+            <Timeline />
         </main>
     );
-}
-
-function getAllNews() {
-    return newsApi.getAllNews({
-        page: 1,
-        perPage: 4,
-        search: '',
-        sort: NewsSort.CREATED_DESC,
-    });
 }
