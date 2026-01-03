@@ -6,7 +6,7 @@ import ArtistModal from '@/components/ArtistModal';
 import { Artist } from '@/types';
 import ARTISTS from '@/data/artists.json'
 
-const artists = ARTISTS
+const artists = ARTISTS.sort((a, b) => a.name.localeCompare(b.name));
 
 function ArtistList() {
   const searchParams = useSearchParams();

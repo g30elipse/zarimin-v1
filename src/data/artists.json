@@ -1,5 +1,12 @@
 [
   {
+    "id": "aasha-boro",
+    "name": "Aasha Boro",
+    "role": "Singer",
+    "bio": "She is known for her beautiful voice and her ability to sing in the multiple languages.",
+    "image": "/artists/aasha.jpg"
+  },
+  {
     "id": "bikram-brahma",
     "name": "Bikram Brahma",
     "role": "Sifung Virtuoso",
