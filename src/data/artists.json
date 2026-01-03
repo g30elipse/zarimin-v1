@@ -1,0 +1,23 @@
+[
+  {
+    "id": "bikram-brahma",
+    "name": "Bikram Brahma",
+    "role": "Sifung Virtuoso",
+    "bio": "Master of the traditional flute with 30 years of preservation work.",
+    "image": "/bikram.jpg"
+  },
+  {
+    "id": "nisha-goyary",
+    "name": "Nisha Goyary",
+    "role": "Folk Vocalist",
+    "bio": "Revitalizing ancient ballads for the modern digital stage.",
+    "image": "/nisha.jpg"
+  },
+  {
+    "id": "sulekha-boro",
+    "name": "Sulekha Boro",
+    "role": "Percussionist",
+    "bio": "Exploring the rhythmic complexities of the Kham drum.",
+    "image": "/sulekha.jpg"
+  }
+]

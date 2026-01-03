@@ -57,6 +57,7 @@ export default function ZariminMagazine() {
                     <span>Zarimin Studio</span>
                     <div className="flex gap-6">
                         <a href="#" className="hover:line-through">Archive</a>
+                        <a href="/artists" className="hover:line-through">Artists</a>
                         <a href="#" className="hover:line-through">Contact</a>
                     </div>
                 </nav>
