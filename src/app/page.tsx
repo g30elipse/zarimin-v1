@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis';
 import Timeline from '@/components/Timeline';
+import HighlightedWorks from '@/components/HighlightedWorks';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,26 +96,7 @@ export default function ZariminMagazine() {
             </section>
 
             {/* The Gallery - Magazine Layout */}
-            <section className="pb-32 px-6 md:ml-16 md:px-24">
-                <h2 className="text-xs font-bold uppercase tracking-widest mb-16 opacity-50">Selected Works</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 items-start">
-                    <div className="gallery-item space-y-4 pt-12">
-                        <div className="aspect-square bg-neutral-400" />
-                        <h3 className="font-serif italic text-xl">Rhythm of Udalguri</h3>
-                        <p className="text-[10px] uppercase tracking-widest opacity-60">Short Film / 2024</p>
-                    </div>
-                    <div className="gallery-item space-y-4">
-                        <div className="aspect-[4/5] bg-neutral-400" />
-                        <h3 className="font-serif italic text-xl">The Last Ballad</h3>
-                        <p className="text-[10px] uppercase tracking-widest opacity-60">Music Video / 2024</p>
-                    </div>
-                    <div className="gallery-item space-y-4 pt-24">
-                        <div className="aspect-square bg-neutral-400" />
-                        <h3 className="font-serif italic text-xl">Future Echoes</h3>
-                        <p className="text-[10px] uppercase tracking-widest opacity-60">Studio Album</p>
-                    </div>
-                </div>
-            </section>
+            <HighlightedWorks />
 
             <Timeline />
         </main>
