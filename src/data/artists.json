@@ -7,24 +7,213 @@
     "image": "/artists/aasha.jpg"
   },
   {
-    "id": "bikram-brahma",
-    "name": "Bikram Brahma",
-    "role": "Sifung Virtuoso",
-    "bio": "Master of the traditional flute with 30 years of preservation work.",
-    "image": "/bikram.jpg"
+    "id": "sulekha-basumatury",
+    "name": "Sulekha Basumatury",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/sulekha-basumatury.jpg"
   },
   {
-    "id": "nisha-goyary",
-    "name": "Nisha Goyary",
-    "role": "Folk Vocalist",
-    "bio": "Revitalizing ancient ballads for the modern digital stage.",
-    "image": "/nisha.jpg"
+    "id": "nikita-boro",
+    "name": "Nikita Boro",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/nikita-boro.jpg"
   },
   {
-    "id": "sulekha-boro",
-    "name": "Sulekha Boro",
-    "role": "Percussionist",
-    "bio": "Exploring the rhythmic complexities of the Kham drum.",
-    "image": "/sulekha.jpg"
+    "id": "elisha-boro",
+    "name": "Elisha Boro",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/elisha-boro.jpg"
+  },
+  {
+    "id": "nitamoni-boro",
+    "name": "Nitamoni Boro",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/nitamoni-boro.jpg"
+  },
+  {
+    "id": "usha-rani-brahma",
+    "name": "Usha Rani Brahma",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/usha-rani-brahma.jpg"
+  },
+  {
+    "id": "fungbili-basumatury",
+    "name": "Fungbili Basumatury",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/fungbili-basumatury.jpg"
+  },
+  {
+    "id": "heena",
+    "name": "Heena",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/heena.jpg"
+  },
+  {
+    "id": "meera",
+    "name": "Meera",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/meera.jpg"
+  },
+  {
+    "id": "kunu-moyi-rabha",
+    "name": "Kunu Moyi Rabha",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/kunu-moyi-rabha.jpg"
+  },
+  {
+    "id": "karabi-kachari",
+    "name": "Karabi Kachari",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/karabi-kachari.jpg"
+  },
+  {
+    "id": "alphinstone",
+    "name": "Alphinstone",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/alphinstone.jpg"
+  },
+  {
+    "id": "swmkhwr-daimari",
+    "name": "Swmkhwr Daimari",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/swmkhwr-daimari.jpg"
+  },
+  {
+    "id": "kapil-boro",
+    "name": "Kapil Boro",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/kapil-boro.jpg"
+  },
+  {
+    "id": "jelsing",
+    "name": "Jelsing",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/jelsing.jpg"
+  },
+  {
+    "id": "mwnswm",
+    "name": "Mwnswm",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/mwnswm.jpg"
+  },
+  {
+    "id": "himalaya",
+    "name": "Himalaya",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/himalaya.jpg"
+  },
+  {
+    "id": "thorthingo",
+    "name": "Thorthingo",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/thorthingo.jpg"
+  },
+  {
+    "id": "mamai",
+    "name": "Mamai",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/mamai.jpg"
+  },
+  {
+    "id": "mijing",
+    "name": "Mijing",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/mijing.jpg"
+  },
+  {
+    "id": "nippu",
+    "name": "Nippu",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/nippu.jpg"
+  },
+  {
+    "id": "tajim",
+    "name": "Tajim",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/tajim.jpg"
+  },
+  {
+    "id": "nayan-borgoyary",
+    "name": "Nayan Borgoyary",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/nayan-borgoyary.jpg"
+  },
+  {
+    "id": "gautam",
+    "name": "Gautam",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/gautam.jpg"
+  },
+  {
+    "id": "bigrai",
+    "name": "Bigrai",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/bigrai.jpg"
+  },
+  {
+    "id": "biraj",
+    "name": "Biraj",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/biraj.jpg"
+  },
+  {
+    "id": "nnipon",
+    "name": "Nnipon",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/nnipon.jpg"
+  },
+  {
+    "id": "bitu",
+    "name": "Bitu",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/bitu.jpg"
+  },
+  {
+    "id": "konsai",
+    "name": "Konsai",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/konsai.jpg"
+  },
+  {
+    "id": "zubeen-garg",
+    "name": "Zubeen Garg",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/zubeen-garg.jpg"
+  },
+  {
+    "id": "daohang",
+    "name": "Daohang",
+    "role": "Artist",
+    "bio": "An accomplished artist known for their contributions to the music industry.",
+    "image": "/artists/daohang.jpg"
   }
 ]
