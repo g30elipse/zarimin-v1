@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Header from '@/components/Header';
 
 gsap.registerPlugin(ScrollTrigger);
 const historyData = [
@@ -114,7 +115,7 @@ export default function DeepHistory() {
 
   return (
     <main ref={containerRef} className="bg-[#0a0a0a] text-[#d4d4d4] cursor-none">
-
+      <Header />
       {/* 1. DYNAMIC PROGRESS BAR */}
       <div className="fixed top-0 left-0 w-full h-[2px] bg-white/10 z-[100]">
         <div className="progress-fill absolute top-0 left-0 h-full w-full bg-orange-500 origin-left scale-x-0" />

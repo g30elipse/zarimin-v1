@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import ArtistModal from '@/components/ArtistModal';
 import { Artist } from '@/types';
 import ARTISTS from '@/data/artists.json'
+import Header from '@/components/Header';
 
 const artists = ARTISTS.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -43,6 +44,7 @@ function ArtistList() {
   const activeArtist = activeArtistId ? artists.find(a => a.id === activeArtistId) : undefined;
 
   return (
+
     <main className="bg-[#ecebe9] min-h-screen pt-32 px-10">
       <h1 className="text-[12vw] font-black uppercase tracking-tighter leading-none mb-20">The Artists</h1>
 
@@ -87,6 +89,7 @@ function ArtistList() {
 export default function ArtistsPage() {
   return (
     <Suspense fallback={<div>Loading Archive...</div>}>
+      <Header />
       <ArtistList />
     </Suspense>
   );

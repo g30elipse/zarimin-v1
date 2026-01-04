@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis';
 import Timeline from '@/components/Timeline';
 import HighlightedWorks from '@/components/HighlightedWorks';
+import Header from '@/components/Header';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,15 +53,7 @@ export default function ZariminMagazine() {
 
             {/* Hero Section */}
             <section className="hero-section relative h-screen w-full flex flex-col items-center justify-center overflow-hidden px-6 md:px-24">
-                <nav className="absolute top-0 w-full flex justify-between p-10 uppercase text-[11px] tracking-widest font-bold">
-                    <span>Est. 2024</span>
-                    <span>Zarimin Studio</span>
-                    <div className="flex gap-6">
-                        <a href="#" className="hover:line-through">Archive</a>
-                        <a href="/artists" className="hover:line-through">Artists</a>
-                        <a href="#" className="hover:line-through">Contact</a>
-                    </div>
-                </nav>
+                <Header />
 
                 <div className="z-10 text-center">
                     <h1 className="text-[18vw] font-black leading-[0.75] tracking-tighter uppercase mb-6">
