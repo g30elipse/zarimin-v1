@@ -52,7 +52,7 @@ function ArtistList() {
       {/* Floating Preview Image - Desktop only */}
       <div
         ref={imageRef}
-        className={`hidden  md:block fixed left-0 top-0 w-64 h-80 pointer-events-none z-50 overflow-hidden transition-opacity duration-300 ${hoveredArtist ? 'opacity-100' : 'opacity-0'}`}
+        className={`hidden md:block fixed left-0 top-0 w-64 h-80 pointer-events-none z-50 overflow-hidden transition-opacity duration-300 ${hoveredArtist ? 'opacity-100' : 'opacity-0'}`}
       >
         {hoveredArtist && (
           <img src={hoveredArtist.image} className="w-full h-full object-cover grayscale" />
