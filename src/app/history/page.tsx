@@ -8,43 +8,79 @@ import Masthead from '@/components/Masthead';
 gsap.registerPlugin(ScrollTrigger);
 const historyData = [
   {
-    era: "The Origin",
-    date: "3000 BCE",
+    era: "Ritual and Folk Theatre",
+    date: "Pre-1900s",
     entries: [
       {
-        title: "The Himalayan Descent",
-        content: "Boro people migrated from the Yellow River valley through Tibet and Bhutan.",
-        tag: "MIGRATION"
+        title: "The Kherai Origins",
+        content: "Historically, the 'entertainment' of the Boro people was inseparable from their religion (Bathouism). The Kherai Puja is the ultimate performance landmark, featuring the Doudini (shamaness) who performs up to 18 different types of dances to the beat of the Kham (drum) and the melody of the Siphung (flute).",
+        tag: "RITUAL"
       },
       {
-        title: "The Kirata Period",
-        content: "Referred to as Kiratas in the Mahabharata. Kings like Narakasura identified as Boro-Kachari rulers.",
-        tag: "MYTHOS"
-      },
-      {
-        title: "Agrarian Pioneers",
-        content: "Introduced silkworm rearing and wet rice cultivation to the region.",
-        tag: "INNOVATION"
+        title: "Early Folk Genres",
+        content: "Before modern stages, there were folk forms like Thakhrifalla (a storytelling form where the narrator moves like a spinning wheel), Phuthula Gaan (traditional puppet theatre used for moral education), and Jatra Gaan (the earliest form of Boro drama, heavily influenced by the wandering opera styles of Bengal and Assam).",
+        tag: "FOLK"
       }
     ]
   },
   {
-    era: "Era of Kingdoms",
-    date: "12th - 19th C",
+    era: "The Rise of Modern Drama",
+    date: "1919–1960",
     entries: [
       {
-        title: "Medieval Dominance",
-        content: "Established powerful kingdoms including the Chutiya, Dimasa, and Koch dynasties.",
-        tag: "DYNASTY"
+        title: "1919: The First Play",
+        content: "Satish Chandra Basumatary wrote Nalabuha, considered the first unpublished Boro play. It was a milestone because it moved the community's stories from oral tradition to a written, scripted format.",
+        tag: "MILESTONE"
       },
       {
-        title: "The Fall of Sovereignty",
-        content: "1854: The last Kachari kingdom fell under British control after King Govinda Chandra's death.",
-        tag: "COLONIAL"
+        title: "1925: First Published Play",
+        content: "The first published Boro play, 'Hamphe' by Maniram Islary, was released, marking the beginning of Boro literature in print.",
+        tag: "PUBLICATION"
+      },
+      {
+        title: "1950s: The Reformist Era",
+        content: "This was the 'Budding Age' (Bithorai Yug). Playwrights like Kamal Kumar Brahma used drama as a weapon for social reform, tackling issues like illiteracy and alcohol addiction. His play Gwdan Faichali (1959) is considered the first truly modern Boro play.",
+        tag: "REFORM"
+      }
+    ]
+  },
+  {
+    era: "The Cinematic Revolution",
+    date: "1986–Present",
+    entries: [
+      {
+        title: "1986: Birth of Boro Cinema",
+        content: "The first Boro language film, 'Alayaron', was released. Directed by Jwngdao Bodosa, it won a National Film Award, proving that Boro stories had a place on the national stage.",
+        tag: "CINEMA"
+      },
+      {
+        title: "1990s – Early 2000s: The VCD Era",
+        content: "The rise of the Boro music video industry. These VCDs (Video Compact Discs) became the most popular form of home entertainment, often featuring high-energy Bagurumba folk-fusion beats.",
+        tag: "MUSIC"
+      },
+      {
+        title: "2009: The 'Haina Muli' Phenomenon",
+        content: "The release of the comedy film series Haina Muli marked a shift toward contemporary pop culture. It used humor and satire to discuss the political and social struggles of the Bodoland region.",
+        tag: "POP CULTURE"
+      }
+    ]
+  },
+  {
+    era: "Boro Mobile Theatre",
+    date: "2000s–Present",
+    entries: [
+      {
+        title: "Scale and Production",
+        content: "In the last 20 years, the Boro community has adopted the famous Assamese Mobile Theatre (Bhramyaman) model and made it their own. Groups like Bodoland Theatre and Hengul Theatre travel with massive stages, professional lighting, and sound systems, often performing to crowds of 5,000+ people in remote villages.",
+        tag: "THEATRE"
+      },
+      {
+        title: "Cultural Impact",
+        content: "These groups are the largest employers of local artists, musicians, and technicians, making the entertainment sector a vital part of the Boro economy.",
+        tag: "ECONOMY"
       }
     ]
   }
-  // ... continue for other eras
 ];
 
 
@@ -52,7 +88,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function DeepHistory() {
   const containerRef = useRef(null);
-  const [currentYear, setCurrentYear] = useState("3000 BCE");
+  const [currentYear, setCurrentYear] = useState("Pre-1900s");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -138,7 +174,7 @@ export default function DeepHistory() {
 
           {/* STICKY SIDEBAR (Left) */}
           <div className="era-sidebar w-full md:w-[40%] h-screen flex flex-col justify-center p-10 md:p-24 bg-[#0a0a0a] border-r border-white/5">
-            <h2 className="text-7xl md:text-[8vw] font-black uppercase tracking-tighter leading-[0.8] text-white mix-blend-difference">
+            <h2 className="text-7xl md:text-[5vw] font-black uppercase tracking-tighter leading-[0.8] text-white mix-blend-difference">
               {section.era.split(' ').map((word, i) => (
                 <span key={i} className="block">{word}</span>
               ))}
