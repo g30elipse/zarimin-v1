@@ -6,6 +6,7 @@ import Lenis from '@studio-freight/lenis';
 import Timeline from '@/components/Timeline';
 import HighlightedWorks from '@/components/HighlightedWorks';
 import Header from '@/components/Header';
+import Masthead from '@/components/Masthead';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,15 +45,13 @@ export default function ZariminMagazine() {
 
     return (
         <main ref={containerRef} className="bg-[#ecebe9] text-[#1a1a1a]">
+            <span className='absolute p-10 left-0 uppercase text-[11px] tracking-widest font-bold'>Est. 2024</span>
             {/* Sidebar Masthead - Magazine Style */}
-            <div className="fixed left-0 top-0 h-screen w-16 border-r border-black/10 z-50 hidden md:flex items-center justify-center">
-                <span className="rotate-90 origin-center whitespace-nowrap uppercase tracking-[0.5em] text-[10px] font-bold">
-                    Issue No. 001 — Production House
-                </span>
-            </div>
+            <Masthead text='Issue No. 001 — Production House' />
 
             {/* Hero Section */}
             <section className="hero-section relative h-screen w-full flex flex-col items-center justify-center overflow-hidden px-6 md:px-24">
+
                 <Header />
 
                 <div className="z-10 text-center">
