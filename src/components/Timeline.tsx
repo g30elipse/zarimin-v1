@@ -66,11 +66,11 @@ export default function Timeline() {
         <div key={index} className="timeline-section h-screen w-full flex items-center justify-center relative overflow-hidden border-b border-white/5">
 
           {/* Background Year - Large Stylized Watermark */}
-          <span className="absolute left-10 bottom-10 text-[25vw] font-black leading-none opacity-5 select-none pointer-events-none tracking-tighter italic">
+          <span className="absolute left-4 md:left-10 bottom-4 md:bottom-10 text-[20vw] md:text-[25vw] font-black leading-none opacity-5 select-none pointer-events-none tracking-tighter italic">
             {item.year}
           </span>
 
-          <div className="container mx-auto px-10 grid grid-cols-12 items-center gap-12 z-10">
+          <div className="container mx-auto px-4 md:px-10 grid grid-cols-12 items-center gap-6 md:gap-12 z-10">
             {/* Image Layer */}
             <div className="col-span-12 md:col-span-7 overflow-hidden">
               <div className="img-wrap aspect-video relative group">
@@ -84,14 +84,14 @@ export default function Timeline() {
             </div>
 
             {/* Text Layer */}
-            <div className="col-span-12 md:col-span-5 space-y-6">
-              <p className="text-orange-500 font-mono tracking-[0.3em] text-sm uppercase">Archive_Ref: {item.year}</p>
-              <h2 className="title text-6xl font-black uppercase tracking-tighter leading-none">
+            <div className="col-span-12 md:col-span-5 space-y-4 md:space-y-6">
+              <p className="text-orange-500 font-mono tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm uppercase">Archive_Ref: {item.year}</p>
+              <h2 className="title text-3xl md:text-6xl font-black uppercase tracking-tighter leading-none">
                 {item.title}
               </h2>
               <div className="content">
-                <p className="text-xl font-serif italic text-white/80 mb-4">{item.sub}</p>
-                <p className="text-sm leading-relaxed text-zinc-400 max-w-sm border-l border-orange-500 pl-6">
+                <p className="text-lg md:text-xl font-serif italic text-white/80 mb-3 md:mb-4">{item.sub}</p>
+                <p className="text-sm md:text-sm leading-relaxed text-zinc-400 max-w-sm border-l border-orange-500 pl-4 md:pl-6">
                   {item.desc}
                 </p>
               </div>

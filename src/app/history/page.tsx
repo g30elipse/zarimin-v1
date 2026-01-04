@@ -92,6 +92,9 @@ export default function DeepHistory() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Only enable pinning on desktop (width >= 768px)
+      const isDesktop = window.innerWidth >= 768;
+
       // 1. Progress Bar Animation
       gsap.to(".progress-fill", {
         scaleX: 1,
@@ -110,14 +113,16 @@ export default function DeepHistory() {
         const sidebar = era.querySelector(".era-sidebar");
         const cards = era.querySelectorAll(".entry-card");
 
-        // Sticky Sidebar logic
-        ScrollTrigger.create({
-          trigger: era as HTMLElement,
-          start: "top top",
-          end: "bottom bottom",
-          pin: sidebar,
-          pinSpacing: false,
-        });
+        // Sticky Sidebar logic - only on desktop
+        if (isDesktop && sidebar) {
+          ScrollTrigger.create({
+            trigger: era as HTMLElement,
+            start: "top top",
+            end: "bottom bottom",
+            pin: sidebar,
+            pinSpacing: false,
+          });
+        }
 
         // Update Global Year based on Era in view
         ScrollTrigger.create({
@@ -157,10 +162,10 @@ export default function DeepHistory() {
       {/* 1. DYNAMIC PROGRESS BAR */}
       <div className="fixed top-0 left-0 w-full h-[2px] bg-white/10 z-[100]">
         <div className="progress-fill absolute top-0 left-0 h-full w-full bg-orange-500 origin-left scale-x-0" />
-        <div className="absolute top-4 left-10 flex items-center gap-4">
-          <span className="text-[10px] font-mono tracking-[0.5em] text-orange-500 uppercase">Archive Journey</span>
-          <span className="h-[1px] w-12 bg-zinc-700" />
-          <span className="text-xl font-black italic text-white font-serif">{currentYear}</span>
+        <div className="absolute top-3 md:top-4 left-4 md:left-10 flex items-center gap-2 md:gap-4">
+          <span className="text-[8px] md:text-[10px] font-mono tracking-[0.3em] md:tracking-[0.5em] text-orange-500 uppercase">Archive Journey</span>
+          <span className="hidden md:block h-[1px] w-12 bg-zinc-700" />
+          <span className="text-sm md:text-xl font-black italic text-white font-serif">{currentYear}</span>
         </div>
       </div>
 
@@ -173,33 +178,33 @@ export default function DeepHistory() {
         >
 
           {/* STICKY SIDEBAR (Left) */}
-          <div className="era-sidebar w-full md:w-[40%] h-screen flex flex-col justify-center p-10 md:p-24 bg-[#0a0a0a] border-r border-white/5">
-            <h2 className="text-7xl md:text-[5vw] font-black uppercase tracking-tighter leading-[0.8] text-white mix-blend-difference">
+          <div className="era-sidebar w-full md:w-[40%] min-h-[50vh] md:h-screen flex flex-col justify-center p-6 md:p-24 bg-[#0a0a0a] border-b md:border-r border-white/5">
+            <h2 className="text-4xl md:text-[5vw] font-black uppercase tracking-tighter leading-[0.8] text-white mix-blend-difference">
               {section.era.split(' ').map((word, i) => (
                 <span key={i} className="block">{word}</span>
               ))}
             </h2>
-            <div className="mt-8 flex items-center gap-4 overflow-hidden">
-              <span className="h-[1px] w-20 bg-orange-500" />
-              <p className="text-sm font-mono tracking-widest text-zinc-500">{section.date}</p>
+            <div className="mt-6 md:mt-8 flex items-center gap-3 md:gap-4 overflow-hidden">
+              <span className="h-[1px] w-12 md:w-20 bg-orange-500" />
+              <p className="text-xs md:text-sm font-mono tracking-widest text-zinc-500">{section.date}</p>
             </div>
           </div>
 
           {/* SCROLLING ENTRIES (Right) */}
-          <div className="w-full md:w-[60%] flex flex-col gap-[30vh] py-[30vh] px-10 md:px-24">
+          <div className="w-full md:w-[60%] flex flex-col gap-16 md:gap-[30vh] py-16 md:py-[30vh] px-4 md:px-24">
             {section.entries.map((entry, eIdx) => (
               <div key={eIdx} className="entry-card max-w-lg relative group">
-                <span className="absolute -left-12 top-0 text-orange-500/20 font-black text-6xl select-none">0{eIdx + 1}</span>
-                <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-orange-500 mb-4">{entry.tag}</p>
-                <h3 className="text-5xl font-bold uppercase mb-8 leading-none tracking-tighter text-white transition-all duration-500">
+                <span className="absolute -left-8 md:-left-12 top-0 text-orange-500/20 font-black text-4xl md:text-6xl select-none">0{eIdx + 1}</span>
+                <p className="text-[9px] md:text-[10px] font-mono uppercase tracking-[0.2em] md:tracking-[0.3em] text-orange-500 mb-3 md:mb-4">{entry.tag}</p>
+                <h3 className="text-3xl md:text-5xl font-bold uppercase mb-6 md:mb-8 leading-none tracking-tighter text-white transition-all duration-500">
                   {entry.title}
                 </h3>
-                <p className="text-lg leading-relaxed text-zinc-400 font-light border-l border-white/10 pl-8">
+                <p className="text-base md:text-lg leading-relaxed text-zinc-400 font-light border-l border-white/10 pl-4 md:pl-8">
                   {entry.content}
                 </p>
 
                 {/* Decorative Element */}
-                <div className="mt-10 h-[1px] w-0 group-hover:w-full bg-gradient-to-r from-orange-500 to-transparent transition-all duration-1000" />
+                <div className="mt-6 md:mt-10 h-[1px] w-0 group-hover:w-full bg-gradient-to-r from-orange-500 to-transparent transition-all duration-1000" />
               </div>
             ))}
           </div>
@@ -207,9 +212,9 @@ export default function DeepHistory() {
       ))}
 
       {/* FINAL CALL TO ACTION */}
-      <section className="h-screen flex flex-col items-center justify-center bg-orange-600 text-white">
-        <p className="uppercase tracking-[1em] text-xs mb-8">End of Archive</p>
-        <h2 className="text-[12vw] font-black tracking-tighter uppercase leading-none text-center">
+      <section className="h-screen flex flex-col items-center justify-center bg-orange-600 text-white px-4">
+        <p className="uppercase tracking-[0.5em] md:tracking-[1em] text-[10px] md:text-xs mb-6 md:mb-8">End of Archive</p>
+        <h2 className="text-[14vw] md:text-[12vw] font-black tracking-tighter uppercase leading-none text-center">
           BECOME <br /> THE STORY
         </h2>
       </section>

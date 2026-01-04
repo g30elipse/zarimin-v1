@@ -46,9 +46,9 @@ function ArtistList() {
 
   return (
 
-    <main className="bg-[#ecebe9] min-h-screen pt-32 px-10">
+    <main className="bg-[#ecebe9] min-h-screen pt-20 md:pt-32 px-4 md:px-10">
       <div className='max-w-7xl mx-auto'>
-        <h1 className="text-[12vw] font-black uppercase tracking-tighter leading-none mb-20">The Artists</h1>
+        <h1 className="text-[14vw] md:text-[12vw] font-black uppercase tracking-tighter leading-none mb-12 md:mb-20">The Artists</h1>
 
         {/* Floating Preview Image - Desktop only */}
         <div
@@ -67,12 +67,12 @@ function ArtistList() {
               onMouseEnter={() => setHoveredArtist(artist)}
               onMouseLeave={() => setHoveredArtist(null)}
               onClick={() => openArtist(artist.id)}
-              className="group flex justify-between items-center py-10 border-b border-black cursor-pointer hover:pl-8 transition-all duration-500"
+              className="group flex flex-col md:flex-row justify-between items-start md:items-center py-6 md:py-10 border-b border-black cursor-pointer hover:pl-4 md:hover:pl-8 transition-all duration-500 gap-2 md:gap-0"
             >
-              <h2 className="text-6xl font-serif italic group-hover:text-orange-600 transition-colors">
+              <h2 className="text-3xl md:text-6xl font-serif italic group-hover:text-orange-600 transition-colors">
                 {artist.name}
               </h2>
-              <p className="text-sm uppercase tracking-[0.3em] font-bold">{artist.role}</p>
+              <p className="text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold">{artist.role}</p>
             </div>
           ))}
         </div>
