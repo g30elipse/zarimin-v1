@@ -20,7 +20,7 @@ const dancingScript = Italianno({
 
 export const metadata: Metadata = {
     title: 'Zarimin',
-    description: 'A music platform for the Bodo community',
+    description: 'Preserving culture',
 };
 
 export default function RootLayout({
