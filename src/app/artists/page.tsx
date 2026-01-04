@@ -146,6 +146,15 @@ function ArtistIndexContent() {
   // Find active artist from URL params
   const activeArtist = activeArtistId ? ARTISTS.find(a => a.id === activeArtistId) : undefined;
 
+  // Pause/resume Lenis when modal opens/closes
+  useEffect(() => {
+    if (activeArtist && lenisRef.current) {
+      lenisRef.current.stop();
+    } else if (lenisRef.current) {
+      lenisRef.current.start();
+    }
+  }, [activeArtist]);
+
   useEffect(() => {
     const lenis = new Lenis({ duration: 1.5 });
     lenisRef.current = lenis;
@@ -201,7 +210,7 @@ function ArtistIndexContent() {
   };
 
   return (
-    <main className="bg-[#ecebe9] min-h-screen text-black px-6 md:px-20 pt-32 relative md:ml-16">
+    <main className=" min-h-screen text-black px-6 md:px-20 pt-32 relative md:ml-16">
       <Header />
       <Masthead text='Issue No. 003 — Artists' />
       {/* Floating Preview Image - Desktop only */}
