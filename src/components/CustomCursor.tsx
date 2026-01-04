@@ -56,7 +56,7 @@ export default function CustomCursor() {
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-4 h-4 bg-white border border-black rounded-full pointer-events-none z-[9999] flex items-center justify-center -translate-x-1/2 -translate-y-1/2"
+      className="fixed hidden top-0 left-0 w-4 h-4 bg-white border border-black rounded-full pointer-events-none z-[9999] md:flex items-center justify-center -translate-x-1/2 -translate-y-1/2"
     />
   );
 }

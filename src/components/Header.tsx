@@ -97,7 +97,7 @@ const Header: FC<HeaderProps> = (props) => {
         style={{ transform: 'translateX(100%)' }}
       >
         <div className="flex flex-col h-full p-8 pt-20">
-          <nav className="flex flex-col gap-8 uppercase text-sm tracking-widest font-bold">
+          <nav className="flex flex-col gap-8 uppercase text-sm tracking-widest font-bold text-[#1a1a1a]">
             <a
               href="/"
               onClick={handleLinkClick}
